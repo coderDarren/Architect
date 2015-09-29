@@ -8,7 +8,7 @@ public class ragDollReplace : MonoBehaviour {
 
 	void OnTriggerEnter (Collider coll)
 	{
-		if (coll.tag == "DetTest")
+		if (coll.tag == "Fireball")
 		{
 			playerBody.SetActive(false);
 			ragDoll.SetActive (true);

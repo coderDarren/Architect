@@ -155,6 +155,7 @@
      <Compile Include="Assets\Scripts\Powers\SpellCollision.cs" />
      <Compile Include="Assets\Scripts\Powers\Trap_Bomb.cs" />
      <Compile Include="Assets\Scripts\Powers\detPointsTEST.cs" />
+     <Compile Include="Assets\Scripts\Powers\testArchPowers.cs" />
      <Compile Include="Assets\Scripts\Rotater.cs" />
      <Compile Include="Assets\Scripts\UI\PowerSelectedArrow.cs" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
