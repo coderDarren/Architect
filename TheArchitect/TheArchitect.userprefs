@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/TESTING/ThirdPersonController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/TESTING/thirdPersonNetwork.cs">
     <Files>
-      <File FileName="Assets/Scripts/Network/TESTING/ThirdPersonCamera.cs" Line="60" Column="82" />
-      <File FileName="Assets/Scripts/Network/TESTING/ThirdPersonController.cs" Line="351" Column="1" />
-      <File FileName="Assets/Scripts/Network/TESTING/thirdPersonNetwork.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Network/TESTING/networkManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character/ragDollReplace.cs" Line="14" Column="29" />
+      <File FileName="Assets/Scripts/Network/TESTING/thirdPersonNetwork.cs" Line="42" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11415440}
   m_Layer: 0
   m_Name: Detonator-Base
-  m_TagString: Untagged
+  m_TagString: DetTest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,10 @@ Prefab:
       propertyPath: ObservedComponents.Array.data[0]
       value: 
       objectReference: {fileID: 400000}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: DetTest
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
