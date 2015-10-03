@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ragDollReplace : MonoBehaviour {
+public class ragDollReplace : Photon.MonoBehaviour {
 
 	public GameObject playerBody;
-	public GameObject ragDoll;
+	public GameObject RagDoll;
 	public GameObject playerGun;
 	public float downTime;
 	private float originalValue;
-	public bool timerRunning;
+	public bool timerRunning = false;
 
 	void Start ()
 	{
@@ -23,16 +23,9 @@ public class ragDollReplace : MonoBehaviour {
 			if (downTime <= 0)
 			{
 				ReinstatePlayerBody();
+				timerRunning = false;
 			}
 		}
-	}
-
-	public void ReinstatePlayerBody()
-	{
-		ragDoll.SetActive(false);
-		playerBody.SetActive(true);
-		playerGun.SetActive(true);
-		downTime = originalValue;
 	}
 
 	void OnTriggerEnter (Collider coll)
@@ -41,9 +34,16 @@ public class ragDollReplace : MonoBehaviour {
 		{
 			playerGun.SetActive(false);
 			playerBody.SetActive(false);
-			ragDoll.SetActive (true);
+			GameObject ragDoll = PhotonNetwork.Instantiate(RagDoll.name, playerBody.transform.position, Quaternion.identity, 0);
 			timerRunning = true;
 		}
 	}
 
+		public void ReinstatePlayerBody()
+	{
+		PhotonNetwork.Destroy(GetComponent<PhotonView>());
+		playerBody.SetActive(true);
+		playerGun.SetActive(true);
+		downTime = originalValue;
+	}
 }
