@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
 public class ragDollReplace : Photon.MonoBehaviour {
 
 	public GameObject playerBody;
 	public GameObject RagDoll;
+	public GameObject ragDoll;
 	public GameObject playerGun;
 	public float downTime;
 	private float originalValue;
@@ -34,14 +36,15 @@ public class ragDollReplace : Photon.MonoBehaviour {
 		{
 			playerGun.SetActive(false);
 			playerBody.SetActive(false);
-			GameObject ragDoll = PhotonNetwork.Instantiate(RagDoll.name, playerBody.transform.position, Quaternion.identity, 0);
+			GameObject ragDoll = GameObject.Instantiate(RagDoll, playerBody.transform.position, Quaternion.identity) as GameObject;
 			timerRunning = true;
 		}
 	}
 
 		public void ReinstatePlayerBody()
 	{
-		PhotonNetwork.Destroy(GetComponent<PhotonView>());
+		DestroyImmediate(RagDoll);
+		RagDoll = Resources.Load("RagDoll", typeof(GameObject)) as GameObject;
 		playerBody.SetActive(true);
 		playerGun.SetActive(true);
 		downTime = originalValue;
