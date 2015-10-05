@@ -5,6 +5,6 @@ public class RagDollDestroy : Photon.MonoBehaviour {
 
 	public void DestroyRagDoll()
 	{
-		PhotonNetwork.Destroy(GetComponent<PhotonView>());
+		PhotonNetwork.Destroy(this.gameObject);
 	}
 }
