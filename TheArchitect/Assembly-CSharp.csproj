@@ -146,6 +146,7 @@
      <Compile Include="Assets\Scripts\Network\TESTING\networkManager.cs" />
      <Compile Include="Assets\Scripts\Network\TESTING\networkPlayer.cs" />
      <Compile Include="Assets\Scripts\Network\TESTING\thirdPersonNetwork.cs" />
+     <Compile Include="Assets\Scripts\Network\gameManager.cs" />
      <Compile Include="Assets\Scripts\Network\launchGame.cs" />
      <Compile Include="Assets\Scripts\Network\playerInGame.cs" />
      <Compile Include="Assets\Scripts\Powers\ArchitectPowers.cs" />

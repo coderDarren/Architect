@@ -115,7 +115,7 @@ public class launchGame : MonoBehaviour {
 		
 		if (GUILayout.Button("Create Room", GUILayout.Width(150)))
 		{
-			PhotonNetwork.CreateRoom(this.roomName, new RoomOptions() {maxPlayers = 10}, null);
+			PhotonNetwork.CreateRoom(this.roomName, new RoomOptions() {maxPlayers = 5}, null);
 		}
 		
 		GUILayout.EndHorizontal();
