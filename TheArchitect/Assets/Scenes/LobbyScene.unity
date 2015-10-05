@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36a5a390ba194e17a6047e485dee54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skin: {fileID: 0}
+  Skin: {fileID: 11400000, guid: d22e8f4740e854a0fb6a9aaea44a9588, type: 2}
   WidthAndHeight: {x: 600, y: 400}
 --- !u!4 &595275930
 Transform:

@@ -89,7 +89,7 @@ public class launchGame : MonoBehaviour {
 		}
 		
 		Rect content = new Rect((Screen.width - this.WidthAndHeight.x)/2, (Screen.height - this.WidthAndHeight.y)/2, this.WidthAndHeight.x, this.WidthAndHeight.y);
-		GUI.Box(content, "Join or Create Room");
+//		GUI.Box(content, "Join or Create Room");
 		GUILayout.BeginArea(content);
 		
 		GUILayout.Space(40);
