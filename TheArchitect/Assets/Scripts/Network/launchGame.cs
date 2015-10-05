@@ -6,6 +6,7 @@ public class launchGame : MonoBehaviour {
 
 	public GUISkin Skin;
 	public Vector2 WidthAndHeight = new Vector2(600, 400);
+	public float windowPlacementY;
 	private string roomName = "myRoom";
 	
 	private Vector2 scrollPos = Vector2.zero;
@@ -88,7 +89,7 @@ public class launchGame : MonoBehaviour {
 			return;
 		}
 		
-		Rect content = new Rect((Screen.width - this.WidthAndHeight.x)/2, (Screen.height - this.WidthAndHeight.y)/2, this.WidthAndHeight.x, this.WidthAndHeight.y);
+		Rect content = new Rect((Screen.width - this.WidthAndHeight.x)/2, (Screen.height - this.WidthAndHeight.y) * windowPlacementY, this.WidthAndHeight.x, this.WidthAndHeight.y);
 //		GUI.Box(content, "Join or Create Room");
 		GUILayout.BeginArea(content);
 		
@@ -189,6 +190,16 @@ public class launchGame : MonoBehaviour {
 	}
 	
 	// We have two options here: we either joined(by title, list or random) or created a room.
+	public void CreateRoom()
+	{
+		PhotonNetwork.CreateRoom(this.roomName, new RoomOptions() {maxPlayers = 5}, null);
+	}
+
+	public void JoinRoom()
+	{
+		PhotonNetwork.JoinRoom(this.roomName);
+	}
+
 	public void OnJoinedRoom()
 	{
 		Debug.Log("OnJoinedRoom");
