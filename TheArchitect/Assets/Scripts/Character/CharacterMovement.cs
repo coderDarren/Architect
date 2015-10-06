@@ -175,7 +175,6 @@ public class CharacterMovement : MonoBehaviour {
         }
     }
 
-
     void Run()
     {
         if (forwardInput > inputSetting.inputDelay)

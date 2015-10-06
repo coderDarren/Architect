@@ -1,41 +1,46 @@
 fileFormatVersion: 2
-guid: 9c614690002e25049878bad946ac4f00
-timeCreated: 1443300424
+guid: 71e3e2bddf869e04c83485e93a0644e3
+timeCreated: 1444170370
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: Armature
-    100002: Body
-    100004: Cube
-    100006: Head
-    100008: LowerArm.L
-    100010: LowerArm.R
-    100012: LowerLeg.L
-    100014: LowerLeg.R
-    100016: //RootNode
-    100018: Shoulder.L
-    100020: Shoulder.R
-    100022: UpperArm.L
-    100024: UpperArm.R
-    100026: UpperLeg.L
-    100028: UpperLeg.R
+    100002: BackpackGun
+    100004: Body
+    100006: Cube
+    100008: Head
+    100010: LowerArm.L
+    100012: LowerArm.R
+    100014: LowerLeg.L
+    100016: LowerLeg.R
+    100018: //RootNode
+    100020: Shoulder.L
+    100022: Shoulder.R
+    100024: UpperArm.L
+    100026: UpperArm.R
+    100028: UpperLeg.L
+    100030: UpperLeg.R
     400000: Armature
-    400002: Body
-    400004: Cube
-    400006: Head
-    400008: LowerArm.L
-    400010: LowerArm.R
-    400012: LowerLeg.L
-    400014: LowerLeg.R
-    400016: //RootNode
-    400018: Shoulder.L
-    400020: Shoulder.R
-    400022: UpperArm.L
-    400024: UpperArm.R
-    400026: UpperLeg.L
-    400028: UpperLeg.R
-    4300000: Cube
+    400002: BackpackGun
+    400004: Body
+    400006: Cube
+    400008: Head
+    400010: LowerArm.L
+    400012: LowerArm.R
+    400014: LowerLeg.L
+    400016: LowerLeg.R
+    400018: //RootNode
+    400020: Shoulder.L
+    400022: Shoulder.R
+    400024: UpperArm.L
+    400026: UpperArm.R
+    400028: UpperLeg.L
+    400030: UpperLeg.R
+    2300000: BackpackGun
+    3300000: BackpackGun
+    4300000: BackpackGun
+    4300002: Cube
     7400000: Armature|Idle
     7400002: Armature|JumpIdle
     7400004: Armature|RunJump
@@ -115,6 +120,8 @@ ModelImporter:
         weight: 1
       - path: Armature/UpperLeg.R/LowerLeg.R
         weight: 1
+      - path: BackpackGun
+        weight: 1
       - path: Cube
         weight: 1
       maskType: 0
@@ -170,6 +177,8 @@ ModelImporter:
       - path: Armature/UpperLeg.R
         weight: 1
       - path: Armature/UpperLeg.R/LowerLeg.R
+        weight: 1
+      - path: BackpackGun
         weight: 1
       - path: Cube
         weight: 1
@@ -227,6 +236,8 @@ ModelImporter:
         weight: 1
       - path: Armature/UpperLeg.R/LowerLeg.R
         weight: 1
+      - path: BackpackGun
+        weight: 1
       - path: Cube
         weight: 1
       maskType: 0
@@ -283,6 +294,8 @@ ModelImporter:
         weight: 1
       - path: Armature/UpperLeg.R/LowerLeg.R
         weight: 1
+      - path: BackpackGun
+        weight: 1
       - path: Cube
         weight: 1
       maskType: 0
@@ -297,7 +310,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -338,6 +351,8 @@ ModelImporter:
       - path: Armature/UpperLeg.R
         weight: 1
       - path: Armature/UpperLeg.R/LowerLeg.R
+        weight: 1
+      - path: BackpackGun
         weight: 1
       - path: Cube
         weight: 1
