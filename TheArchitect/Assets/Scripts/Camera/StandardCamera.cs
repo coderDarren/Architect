@@ -113,14 +113,14 @@ public class StandardCamera : MonoBehaviour
         }
     }
 
-    void FixedUpdate() // NEW
+    void LateUpdate() // NEW
     {
         if (target)
         {
-            //moving
-            MoveToTarget();
             //rotating
             LookAtTarget();
+            //moving
+            MoveToTarget();
             //player input orbit
             MouseOrbitTarget();
 

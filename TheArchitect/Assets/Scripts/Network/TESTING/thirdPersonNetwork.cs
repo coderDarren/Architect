@@ -26,6 +26,7 @@ public class thirdPersonNetwork : Photon.MonoBehaviour {
                     cameraScript.enabled = true;
                     controllerScript.enabled = true;
                     cameraScript.Initialize(transform);
+                    cam.transform.parent = null;
                 }
 			}
 			else

@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb932ee6304d43dba67b86fa3634fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 195852, guid: b18532ded89fd574fb9d851d16cc2e74, type: 2}
+  playerPrefab: {fileID: 197966, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
   archPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!1001 &799144379
@@ -581,11 +581,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427886, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
       propertyPath: viewIdField
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11427886, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
       propertyPath: instantiationId
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 197966, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
       propertyPath: m_IsActive
