@@ -11,7 +11,7 @@ public class Fireball : MonoBehaviour
     public Vector3 direction;
 
 	
-    void FixedUpdate()
+    void Update()
     {
         TranslatePos();
     }

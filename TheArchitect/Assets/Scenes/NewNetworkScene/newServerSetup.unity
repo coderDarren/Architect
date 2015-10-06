@@ -178,6 +178,7 @@ GameObject:
   - 33: {fileID: 507508344}
   - 64: {fileID: 507508343}
   - 23: {fileID: 507508342}
+  - 65: {fileID: 507508346}
   m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
@@ -229,7 +230,7 @@ MeshCollider:
   m_GameObject: {fileID: 507508340}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -240,6 +241,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 507508340}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &507508346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507508340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.99999905, y: 1.51999998, z: 10}
+  m_Center: {x: 0, y: -.660000026, z: 4.76837158e-07}
 --- !u!1 &628083479
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +577,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430268, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11427886, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
       propertyPath: viewIdField

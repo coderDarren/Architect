@@ -561,9 +561,9 @@ MonoBehaviour:
   activePower: 0
   myCamera: {fileID: 2065066}
   firePower:
-    recharge: 4
+    recharge: 1
     rechargeTimer: 0
-    fireSpeed: 1
+    fireSpeed: 3
     INPUT_AXIS: Fire1
     input: 0
     FireBall: {fileID: 110280, guid: d9f7061356f3309488e6f8570e8598b6, type: 2}
@@ -1248,6 +1248,14 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 195852}
+    - target: {fileID: 0}
+      propertyPath: firePower.fireSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: firePower.recharge
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 195852}

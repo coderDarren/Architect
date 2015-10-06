@@ -16,10 +16,12 @@ public class DetonatorSound : DetonatorComponent {
 	private AudioSource _soundComponent;
 	private bool _delayedExplosionStarted = false;
 	private float _explodeDelay;
+    GameObject player;
 	
 	override public void Init()
 	{
 		_soundComponent = (AudioSource)gameObject.AddComponent <AudioSource>();
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	void Update()
@@ -52,8 +54,8 @@ public class DetonatorSound : DetonatorComponent {
 	//		_soundComponent.minVolume = minVolume;
 	//		_soundComponent.maxVolume = maxVolume;
 	//		_soundComponent.rolloffFactor = rolloffFactor;
-			
-			if (Vector3.Distance(Camera.main.transform.position, this.transform.position) < distanceThreshold)
+
+            if (Vector3.Distance(player.transform.position, this.transform.position) < distanceThreshold)
 			{
 				_idx = (int)(Random.value * nearSounds.Length);
 				_soundComponent.PlayOneShot(nearSounds[_idx]);

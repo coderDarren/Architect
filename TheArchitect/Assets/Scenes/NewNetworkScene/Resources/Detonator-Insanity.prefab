@@ -265,6 +265,7 @@ MonoBehaviour:
   drawFireballA: 1
   drawFireballB: 1
   drawFireShadow: 1
+  player: {fileID: 0}
 --- !u!1002 &11400011
 EditorExtensionImpl:
   serializedVersion: 6
@@ -305,6 +306,7 @@ MonoBehaviour:
   drawFireballA: 1
   drawFireballB: 1
   drawFireShadow: 1
+  player: {fileID: 0}
 --- !u!1002 &11400013
 EditorExtensionImpl:
   serializedVersion: 6
@@ -402,7 +404,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
 --- !u!1002 &100100001
 EditorExtensionImpl:
   serializedVersion: 6
