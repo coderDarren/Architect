@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerPowers : MonoBehaviour {
 
 	[System.Serializable]
-    public class Throw
+    public class Laser
     {
         public float recharge = 4f;
         public float rechargeTimer = 0;
@@ -12,62 +12,39 @@ public class PlayerPowers : MonoBehaviour {
         public string INPUT_AXIS = "Fire1";
         [HideInInspector]
         public float input = 0;
-        public GameObject Projectile;
-        public Transform spawnPos;
+        public GameObject LaserGun;
         public float throwForce = 250;
-        public string ACTIVATE_INPUT = "Power 2";
-        public GameObject PowerSelectedArrow;
+        public string ACTIVATE_INPUT = "Power 1";
     }
 
-    [System.Serializable]
-    public class Attack
-    {
-        public float recharge = 4f;
-        public float rechargeTimer = 0;
-        public float fireSpeed = 1;
-        public string INPUT_AXIS = "Fire1";
-        [HideInInspector]
-        public float input = 0;
-        public string ACTIVATE_INPUT = "Power 2";
-        public GameObject PowerSelectedArrow;
-    }
+    public float rotateSmooth = 5;
+    public float range = 20;
+    public Camera cam;
 
-    public enum ActivePower { Throw, Attack };
+    Quaternion initialRotation;
+    Quaternion targetRotation;
+    Ray ray;
+    RaycastHit hitInfo;
+
+    public enum ActivePower { Laser };
     public ActivePower activePower;
 
-    public Throw throwPower = new Throw();
-    public Attack attackPower = new Attack();
+    public Laser laser = new Laser();
 
     void Start()
     {
-        activePower = ActivePower.Throw;
-        throwPower.PowerSelectedArrow.SetActive(true);
-        attackPower.PowerSelectedArrow.SetActive(false);
+        activePower = ActivePower.Laser;
+        initialRotation = laser.LaserGun.transform.rotation;
     }
 
     void GetInput()
     {
-        throwPower.input = Input.GetAxis(throwPower.INPUT_AXIS);
-        attackPower.input = Input.GetAxis(attackPower.INPUT_AXIS);
-        if (Input.GetAxis(throwPower.ACTIVATE_INPUT) > 0)
-        {
-            activePower = ActivePower.Throw;
-
-            throwPower.PowerSelectedArrow.SetActive(true);
-            attackPower.PowerSelectedArrow.SetActive(false);
-        }
-        else if (Input.GetAxis(attackPower.ACTIVATE_INPUT) > 0)
-        {
-            activePower = ActivePower.Attack;
-            throwPower.PowerSelectedArrow.SetActive(false);
-            attackPower.PowerSelectedArrow.SetActive(true);
-        }
+        laser.input = Input.GetAxis(laser.INPUT_AXIS);
     }
 
     void UpdateTimers()
     {
-        throwPower.rechargeTimer += Time.deltaTime;
-        attackPower.rechargeTimer += Time.deltaTime;
+        laser.rechargeTimer += Time.deltaTime;
     }
 
     void Update()
@@ -77,40 +54,52 @@ public class PlayerPowers : MonoBehaviour {
 
         switch (activePower)
         {
-            case ActivePower.Throw: UpdateThrowPower(); break;
-            case ActivePower.Attack: UpdateAttackPower(); break;
+            case ActivePower.Laser: 
+                UpdateLaserPower(); break;
         }
+        RotateLaser();
     }
 
-    void UpdateThrowPower()
+    void UpdateLaserPower()
     {
-        if (throwPower.rechargeTimer > throwPower.recharge) //if recharge is done
+        if (laser.rechargeTimer > laser.recharge) //if recharge is done
         {
-            if (throwPower.input > 0) //if we click
+            if (laser.input > 0) //if we click
             {
                 //spawn a new projectile
                 //add force to the projectile
                 //the projectile should be able to kill itself overtime
                 //GameObject go = Instantiate(throwPower.Projectile, throwPower.spawnPos.position, Quaternion.identity) as GameObject;
-                GameObject go = PhotonNetwork.Instantiate(throwPower.Projectile.name, throwPower.spawnPos.position, Quaternion.identity, 0);
-
-                throwPower.rechargeTimer = 0;
-                go.GetComponent<Rigidbody>().AddForce(transform.forward*throwPower.throwForce);
+                
+                laser.rechargeTimer = 0;
             }
         }
     }
 
-    void UpdateAttackPower()
+    void RotateLaser()
     {
-        if (attackPower.rechargeTimer > attackPower.recharge) //if recharge is done
+        ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hitInfo)) //if we are hovering over something
         {
-            if (attackPower.input > 0) //if we click
+            if (Vector3.Distance(hitInfo.point, transform.position) <= range) //if we are close enough to the thing we are hovering over
             {
-                //do sphere collision check to find all attackable objects
-                //for the first attackable object
-                    //access the health component and do damage to it
-                    //this object should be able to terminate itself
+                //find target rotation
+
+                targetRotation = Quaternion.LookRotation(hitInfo.point - transform.position);
+            }
+            else
+            {
+                //set rotation to initial
+                targetRotation = initialRotation;
             }
         }
+        else
+        {
+            //set rotation to initial
+            targetRotation = initialRotation;
+        }
+
+        laser.LaserGun.transform.rotation = Quaternion.Slerp(laser.LaserGun.transform.rotation, targetRotation, rotateSmooth * Time.deltaTime);
+
     }
 }
