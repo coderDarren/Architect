@@ -18,7 +18,7 @@ public class PowerSelectedArrow : MonoBehaviour {
 
     void Update()
     {
-        initialPos.y = -50;
+        initialPos.y = -60;
         currentPos.y = Mathf.PingPong(Time.time * 4, oscillateDist) + initialPos.y;
         currentPos.x = 0;
         rt.localPosition = currentPos;

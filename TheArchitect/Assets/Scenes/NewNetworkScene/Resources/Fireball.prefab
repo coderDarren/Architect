@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410274}
   - 108: {fileID: 10810274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lightsource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 15: {fileID: 1510276}
   - 12: {fileID: 1210276}
   - 26: {fileID: 2610276}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OuterCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - 15: {fileID: 1510274}
   - 12: {fileID: 1210274}
   - 26: {fileID: 2610274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InnerCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - 114: {fileID: 11446444}
   - 54: {fileID: 5477114}
   - 114: {fileID: 11498696}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fireball
   m_TagString: Fireball
   m_Icon: {fileID: 0}
@@ -444,6 +444,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Mass
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

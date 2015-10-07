@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11415440}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Detonator-Base
   m_TagString: DetTest
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - 114: {fileID: 11414772}
   - 114: {fileID: 11438310}
   - 114: {fileID: 11461534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Detonator-Insanity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,6 +467,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: minVolume
       value: .0250000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -16,9 +16,10 @@ public class ArchitectPowers : Photon.MonoBehaviour {
         public GameObject FireBall;
         public string ACTIVATE_INPUT = "Power 1";
         public GameObject PowerSelectedArrow;
+        public GameObject RechargeBar;
     }
 
-    [System.Serializable]
+    /*[System.Serializable]
     public class TileDrop
     {
         public float recharge = 4f;
@@ -31,7 +32,8 @@ public class ArchitectPowers : Photon.MonoBehaviour {
         public GameObject selectedTile;
         public string ACTIVATE_INPUT = "Power 2";
         public GameObject PowerSelectedArrow;
-    }
+        public GameObject RechargeBar;
+    }*/
 
     [System.Serializable]
     public class BombTrap
@@ -45,6 +47,7 @@ public class ArchitectPowers : Photon.MonoBehaviour {
         public GameObject Bomb;
         public string ACTIVATE_INPUT = "Power 3";
         public GameObject PowerSelectedArrow;
+        public GameObject RechargeBar;
     }
 
     public enum ActivePower { FireBall, TileDrop, BombTrap };
@@ -52,54 +55,61 @@ public class ArchitectPowers : Photon.MonoBehaviour {
 	public Camera myCamera;
 
     public FireBallPower firePower = new FireBallPower();
-    public TileDrop tileDrop = new TileDrop();
+    //public TileDrop tileDrop = new TileDrop();
     public BombTrap bombTrap = new BombTrap();
-    Color initialTileColor;
 
+    ProgressBar fireRecharge;
+    ProgressBar bombRecharge;
+
+    Color initialTileColor;
     GameObject ArchitectCanvas;
 
 	void Start() 
 	{
 		activePower = ActivePower.FireBall;
 		firePower.PowerSelectedArrow.SetActive(true);
-		tileDrop.PowerSelectedArrow.SetActive(false);
+		//tileDrop.PowerSelectedArrow.SetActive(false);
         bombTrap.PowerSelectedArrow.SetActive(false);
+
         ArchitectCanvas = transform.GetChild(0).gameObject;
         ArchitectCanvas.transform.parent = null;
+
+        fireRecharge = firePower.RechargeBar.GetComponent<ProgressBar>();
+        bombRecharge = bombTrap.RechargeBar.GetComponent<ProgressBar>();
 	}
 
     void GetInput()
     {
         firePower.input = Input.GetAxis(firePower.INPUT_AXIS);
-        tileDrop.input = Input.GetAxis(tileDrop.INPUT_AXIS);
+        //tileDrop.input = Input.GetAxis(tileDrop.INPUT_AXIS);
         bombTrap.input = Input.GetAxis(bombTrap.INPUT_AXIS);
         if (Input.GetAxis(firePower.ACTIVATE_INPUT) > 0)
         {
             activePower = ActivePower.FireBall;
             
-            if (tileDrop.selectedTile)
-                tileDrop.selectedTile.GetComponent<Renderer>().materials[0].color = tileDrop.selectedTile.GetComponent<TileBehavior>().initialColor;
+            /*if (tileDrop.selectedTile)
+                tileDrop.selectedTile.GetComponent<Renderer>().materials[0].color = tileDrop.selectedTile.GetComponent<TileBehavior>().initialColor;*/
             
             firePower.PowerSelectedArrow.SetActive(true);
-            tileDrop.PowerSelectedArrow.SetActive(false);
+            //tileDrop.PowerSelectedArrow.SetActive(false);
             bombTrap.PowerSelectedArrow.SetActive(false);
         }
-        else if (Input.GetAxis(tileDrop.ACTIVATE_INPUT) > 0)
+        /*else if (Input.GetAxis(tileDrop.ACTIVATE_INPUT) > 0)
         {
             activePower = ActivePower.TileDrop;
             firePower.PowerSelectedArrow.SetActive(false);
             tileDrop.PowerSelectedArrow.SetActive(true);
             bombTrap.PowerSelectedArrow.SetActive(false);
-        }
+        }*/
         else if (Input.GetAxis(bombTrap.ACTIVATE_INPUT) > 0)
         {
             activePower = ActivePower.BombTrap;
 
-            if (tileDrop.selectedTile)
-                tileDrop.selectedTile.GetComponent<Renderer>().materials[0].color = tileDrop.selectedTile.GetComponent<TileBehavior>().initialColor;
+            /*if (tileDrop.selectedTile)
+                tileDrop.selectedTile.GetComponent<Renderer>().materials[0].color = tileDrop.selectedTile.GetComponent<TileBehavior>().initialColor;*/
 
             firePower.PowerSelectedArrow.SetActive(false);
-            tileDrop.PowerSelectedArrow.SetActive(false);
+            //tileDrop.PowerSelectedArrow.SetActive(false);
             bombTrap.PowerSelectedArrow.SetActive(true);
         }
     }
@@ -107,8 +117,10 @@ public class ArchitectPowers : Photon.MonoBehaviour {
     void UpdateTimers()
     {
         firePower.rechargeTimer += Time.deltaTime;
-        tileDrop.rechargeTimer += Time.deltaTime;
+        //tileDrop.rechargeTimer += Time.deltaTime;
         bombTrap.rechargeTimer += Time.deltaTime;
+        fireRecharge.UpdateBar(firePower.recharge, firePower.rechargeTimer);
+        bombRecharge.UpdateBar(bombTrap.recharge, bombTrap.rechargeTimer);
     }
 
     void Update()
@@ -119,7 +131,7 @@ public class ArchitectPowers : Photon.MonoBehaviour {
         switch(activePower)
         {
             case ActivePower.FireBall: UpdateFirePower(); break;
-            case ActivePower.TileDrop: UpdateTileDropPower(); break;
+            //case ActivePower.TileDrop: UpdateTileDropPower(); break;
             case ActivePower.BombTrap: UpdateBombTrapPower(); break;
         }
     }
@@ -154,7 +166,7 @@ public class ArchitectPowers : Photon.MonoBehaviour {
         }
     }
 
-    void UpdateTileDropPower()
+    /*void UpdateTileDropPower()
     {
         //find the tile we are hovering on
         Ray ray = myCamera.ScreenPointToRay(Input.mousePosition);
@@ -190,7 +202,7 @@ public class ArchitectPowers : Photon.MonoBehaviour {
             }
         }
 
-    }
+    }*/
 
     void UpdateBombTrapPower()
     {

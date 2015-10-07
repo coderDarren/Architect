@@ -34,6 +34,7 @@ public class PlayerPowers : MonoBehaviour {
         public GameObject SmokeObject;
         public string ACTIVATE_INPUT = "Power 2";
         public GameObject PowerSelectedArrow;
+        public GameObject RechargeBar;
     }
 
     
@@ -47,6 +48,8 @@ public class PlayerPowers : MonoBehaviour {
     GameObject laserSparks;
 
     GameObject PlayerCanvas;
+
+    ProgressBar smokeRecharge;
 
     public enum ActivePower { Laser, Smoke };
     public ActivePower activePower;
@@ -70,6 +73,8 @@ public class PlayerPowers : MonoBehaviour {
 
         PlayerCanvas = transform.GetChild(0).gameObject;
         PlayerCanvas.transform.SetParent(null);
+
+        smokeRecharge = smoke.RechargeBar.GetComponent<ProgressBar>();
     }
 
     void GetInput()
@@ -96,6 +101,7 @@ public class PlayerPowers : MonoBehaviour {
     {
         laser.rechargeTimer += Time.deltaTime;
         smoke.rechargeTimer += Time.deltaTime;
+        smokeRecharge.UpdateBar(smoke.recharge, smoke.rechargeTimer);
     }
 
     void Update()
@@ -117,9 +123,6 @@ public class PlayerPowers : MonoBehaviour {
 
     void UpdateLaserPower()
     {
-        /*if (laser.rechargeTimer > laser.recharge) //if recharge is done
-        {
-        }*/
         if (laser.input > 0) //if we click
         {
             RaycastHit hit;
@@ -138,11 +141,9 @@ public class PlayerPowers : MonoBehaviour {
                 laserLine.SetPosition(0, laser.LaserSpawn.position);
                 laserLine.SetPosition(1, hit.point);
 
-                //check if the laser is hitting a bomb
-                if (hit.collider.gameObject.tag.Equals("Bomb"))
-                {
-                    hit.collider.GetComponent<Trap_Bomb>().KillBomb();
-                }
+                //check if the laser is hitting something
+                HandleLaserHit(hit.collider.gameObject);
+                
             }
             else //if while dragging we go off the laser hit layer
             {
@@ -155,7 +156,6 @@ public class PlayerPowers : MonoBehaviour {
                 }
             }
             
-            //cause damage to hitInfo target
         }
         else
         {
@@ -206,6 +206,14 @@ public class PlayerPowers : MonoBehaviour {
                 smokeBomb.GetComponent<Rigidbody>().AddForce(laser.LaserSpawn.forward * 400);
                 smoke.rechargeTimer = 0;
             }
+        }
+    }
+
+    void HandleLaserHit(GameObject victim)
+    {
+        if (victim.tag.Equals("Bomb"))
+        {
+            victim.GetComponent<Trap_Bomb>().KillBomb();
         }
     }
 

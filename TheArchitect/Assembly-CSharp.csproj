@@ -153,6 +153,7 @@
      <Compile Include="Assets\Scripts\Powers\DistortedForce.cs" />
      <Compile Include="Assets\Scripts\Powers\Fireball.cs" />
      <Compile Include="Assets\Scripts\Powers\PlayerPowers.cs" />
+     <Compile Include="Assets\Scripts\Powers\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\Powers\ProjectileLife.cs" />
      <Compile Include="Assets\Scripts\Powers\SpellCollision.cs" />
      <Compile Include="Assets\Scripts\Powers\Trap_Bomb.cs" />
