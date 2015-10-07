@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ProjectileLife : MonoBehaviour {
 
-    float lifeSpan = 10;
+    public float lifeSpan = 10;
     float timer = 0;
 
     void Update()

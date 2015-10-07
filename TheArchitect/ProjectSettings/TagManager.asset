@@ -18,6 +18,7 @@ TagManager:
   - YellowPlayer
   - Projectile
   - DetTest
+  - Smoke
   layers:
   - Default
   - TransparentFX
