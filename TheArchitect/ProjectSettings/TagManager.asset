@@ -17,6 +17,7 @@ TagManager:
   - GreenPlayer
   - YellowPlayer
   - Projectile
+  - DetTest
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - 
   - 
   - Ground
-  - 
+  - Player
   - 
   - 
   - 

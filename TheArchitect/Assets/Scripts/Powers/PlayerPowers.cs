@@ -6,25 +6,31 @@ public class PlayerPowers : MonoBehaviour {
 	[System.Serializable]
     public class Laser
     {
-        public float recharge = 4f;
+        public float recharge = 0f;
         public float rechargeTimer = 0;
         public float fireSpeed = 1;
+        public float rotateSmooth = 5;
+        public float range = 20;
         public string INPUT_AXIS = "Fire1";
         [HideInInspector]
         public float input = 0;
         public GameObject LaserGun;
-        public float throwForce = 250;
+        public GameObject LaserObject; //the line renderer object
+        public Transform LaserSpawn;
+        public LayerMask laserHitLayer;
+        public GameObject laserSparks;
         public string ACTIVATE_INPUT = "Power 1";
     }
 
-    public float rotateSmooth = 5;
-    public float range = 20;
+    
     public Camera cam;
 
     Quaternion initialRotation;
     Quaternion targetRotation;
     Ray ray;
     RaycastHit hitInfo;
+    LineRenderer laserLine;
+    GameObject laserSparks;
 
     public enum ActivePower { Laser };
     public ActivePower activePower;
@@ -35,6 +41,12 @@ public class PlayerPowers : MonoBehaviour {
     {
         activePower = ActivePower.Laser;
         initialRotation = laser.LaserGun.transform.rotation;
+        GameObject go = PhotonView.Instantiate(laser.LaserObject);
+        go.transform.position = laser.LaserGun.transform.position;
+        laserLine = go.GetComponent<LineRenderer>();
+        laserLine.SetPosition(0, laser.LaserSpawn.position);
+        laserLine.SetPosition(1, go.transform.position);
+        laserSparks = null;
     }
 
     void GetInput()
@@ -62,16 +74,48 @@ public class PlayerPowers : MonoBehaviour {
 
     void UpdateLaserPower()
     {
-        if (laser.rechargeTimer > laser.recharge) //if recharge is done
+        /*if (laser.rechargeTimer > laser.recharge) //if recharge is done
         {
-            if (laser.input > 0) //if we click
+        }*/
+        if (laser.input > 0) //if we click
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(laser.LaserSpawn.position, laser.LaserSpawn.forward, out hit, laser.range, laser.laserHitLayer))
             {
-                //spawn a new projectile
-                //add force to the projectile
-                //the projectile should be able to kill itself overtime
-                //GameObject go = Instantiate(throwPower.Projectile, throwPower.spawnPos.position, Quaternion.identity) as GameObject;
-                
-                laser.rechargeTimer = 0;
+                if (!laserSparks) //only if we havent created the sparks or we set them back to null
+                {
+                    //spawn sparks
+                    laserSparks = PhotonNetwork.Instantiate(laser.laserSparks.name, hit.point, Quaternion.identity, 0);
+                }
+                else
+                {
+                    //position sparks
+                    laserSparks.transform.position = hit.point-((hit.point-laser.LaserSpawn.position)*0.02f);
+                }
+                laserLine.SetPosition(0, laser.LaserSpawn.position);
+                laserLine.SetPosition(1, hit.point);
+            }
+            else //if while dragging we go off the laser hit layer
+            {
+                laserLine.SetPosition(0, laser.LaserSpawn.position);
+                laserLine.SetPosition(1, laser.LaserSpawn.position);
+                if (laserSparks)
+                {
+                    PhotonNetwork.Destroy(laserSparks.GetComponent<PhotonView>());
+                    laserSparks = null;
+                }
+            }
+            
+            //cause damage to hitInfo target
+        }
+        else
+        {
+            laserLine.SetPosition(0, laser.LaserSpawn.position);
+            laserLine.SetPosition(1, laser.LaserSpawn.position);
+            if (laserSparks)
+            {
+                PhotonNetwork.Destroy(laserSparks.GetComponent<PhotonView>());
+                laserSparks = null;
             }
         }
     }
@@ -79,13 +123,13 @@ public class PlayerPowers : MonoBehaviour {
     void RotateLaser()
     {
         ray = cam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hitInfo)) //if we are hovering over something
+        if (Physics.Raycast(ray, out hitInfo, laser.range, laser.laserHitLayer)) //if we are hovering over something
         {
-            if (Vector3.Distance(hitInfo.point, transform.position) <= range) //if we are close enough to the thing we are hovering over
+            if (Vector3.Distance(hitInfo.point, transform.position) <= laser.range) //if we are close enough to the thing we are hovering over
             {
                 //find target rotation
 
-                targetRotation = Quaternion.LookRotation(hitInfo.point - transform.position);
+                targetRotation = Quaternion.LookRotation(hitInfo.point - laser.LaserGun.transform.position);
             }
             else
             {
@@ -99,7 +143,7 @@ public class PlayerPowers : MonoBehaviour {
             targetRotation = initialRotation;
         }
 
-        laser.LaserGun.transform.rotation = Quaternion.Slerp(laser.LaserGun.transform.rotation, targetRotation, rotateSmooth * Time.deltaTime);
+        laser.LaserGun.transform.rotation = Quaternion.Lerp(laser.LaserGun.transform.rotation, targetRotation, laser.rotateSmooth * Time.deltaTime);
 
     }
 }

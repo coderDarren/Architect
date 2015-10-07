@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496614}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 449984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 415884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 486774}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperArm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 446964}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 475974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 428448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerArm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 462212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 480328}
   - 137: {fileID: 13786206}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - 33: {fileID: 3340304}
   - 23: {fileID: 2371176}
   - 95: {fileID: 9595232}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: playerGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,8 +207,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410714}
-  - 114: {fileID: 11449488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +222,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442110}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +237,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 464416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +252,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +267,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 458782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +282,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperArm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +304,7 @@ GameObject:
   - 114: {fileID: 11480962}
   - 114: {fileID: 11425050}
   - 114: {fileID: 11425074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera 1
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -322,8 +321,23 @@ GameObject:
   - 4: {fileID: 400536}
   - 33: {fileID: 3306748}
   - 23: {fileID: 2360886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackpackGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &188478
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 420460}
+  m_Layer: 9
+  m_Name: LaserSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +351,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 448104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerArm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +366,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 476854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +389,7 @@ GameObject:
   - 114: {fileID: 11447374}
   - 114: {fileID: 11427886}
   - 114: {fileID: 11483278}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -446,6 +460,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 499060}
+  - {fileID: 420460}
   m_Father: {fileID: 458782}
   m_RootOrder: 4
 --- !u!4 &415884
@@ -460,6 +475,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 430268}
   m_RootOrder: 4
+--- !u!4 &420460
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: .702000022}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 410714}
+  m_RootOrder: 1
 --- !u!4 &428448
 Transform:
   m_ObjectHideFlags: 1
@@ -998,31 +1025,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654fde13b9fa0ea48a9fb9b4bafb3105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 2031704}
   activePower: 0
   laser:
     recharge: 4
     rechargeTimer: 0
     fireSpeed: 1
+    rotateSmooth: 5
+    range: 20
     INPUT_AXIS: Fire1
     input: 0
-    Projectile: {fileID: 0}
-    spawnPos: {fileID: 410714}
-    throwForce: 250
+    LaserGun: {fileID: 148608}
+    LaserObject: {fileID: 134028, guid: 829de446214861b43af3120164867d0c, type: 2}
+    LaserSpawn: {fileID: 420460}
+    laserHitLayer:
+      serializedVersion: 2
+      m_Bits: 4294966527
     ACTIVATE_INPUT: Power 1
---- !u!114 &11449488
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6542a24f213d642409939e3d1457d086, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSmooth: 5
-  range: 20
-  cam: {fileID: 2031704}
 --- !u!114 &11480962
 MonoBehaviour:
   m_ObjectHideFlags: 1

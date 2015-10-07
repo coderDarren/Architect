@@ -28,7 +28,7 @@ public class Fireball : MonoBehaviour
         if (tag != "Fireball" && tag != "Player")
         {
 //            GameObject go = Instantiate(sparksOnCollision as GameObject) as GameObject;
-			GameObject go = PhotonNetwork.Instantiate(sparksOnCollision.name, this.transform.position, Quaternion.identity, 0);
+			GameObject go = PhotonNetwork.Instantiate(sparksOnCollision.name, this.transform.position, Quaternion.identity,0);
                 
             go.transform.position = transform.position;
 			PhotonNetwork.Destroy(GetComponent<PhotonView>());
