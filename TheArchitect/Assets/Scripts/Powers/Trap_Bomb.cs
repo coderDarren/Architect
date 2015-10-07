@@ -7,12 +7,15 @@ public class Trap_Bomb : Photon.MonoBehaviour {
 	void OnTriggerEnter(Collider col)
     {
         string tag = col.gameObject.tag;
-        if (tag == "Player" || tag == "Projectile")
+        if (tag == "Player" )
         {
-            GameObject go = Instantiate(sparksOnCollision, this.transform.position, Quaternion.identity) as GameObject;
-
-            Destroy(gameObject);
-            PhotonNetwork.Destroy(GetComponent<PhotonView>());
+            KillBomb();
         }
+    }
+
+    public void KillBomb()
+    {
+        GameObject go = Instantiate(sparksOnCollision, this.transform.position, Quaternion.identity) as GameObject;
+        PhotonNetwork.Destroy(GetComponent<PhotonView>());
     }
 }

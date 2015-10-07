@@ -123,9 +123,9 @@ public class PlayerPowers : MonoBehaviour {
         if (laser.input > 0) //if we click
         {
             RaycastHit hit;
-            if (Physics.Raycast(laser.LaserSpawn.position, laser.LaserSpawn.forward, out hit, laser.range, laser.laserHitLayer))
+            if (Physics.Raycast(laser.LaserSpawn.position, laser.LaserSpawn.forward, out hit, laser.range, laser.laserHitLayer)) //position laser based on gun's forward vector
             {
-                if (!laserSparks) //only if we havent created the sparks or we set them back to null
+                if (!laserSparks) //only if we have not created the sparks or we set them back to null
                 {
                     //spawn sparks
                     laserSparks = PhotonNetwork.Instantiate(laser.laserSparks.name, hit.point, Quaternion.identity, 0);
@@ -137,6 +137,12 @@ public class PlayerPowers : MonoBehaviour {
                 }
                 laserLine.SetPosition(0, laser.LaserSpawn.position);
                 laserLine.SetPosition(1, hit.point);
+
+                //check if the laser is hitting a bomb
+                if (hit.collider.gameObject.tag.Equals("Bomb"))
+                {
+                    hit.collider.GetComponent<Trap_Bomb>().KillBomb();
+                }
             }
             else //if while dragging we go off the laser hit layer
             {

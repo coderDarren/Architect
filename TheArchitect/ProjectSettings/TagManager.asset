@@ -19,6 +19,7 @@ TagManager:
   - Projectile
   - DetTest
   - Smoke
+  - Bomb
   layers:
   - Default
   - TransparentFX

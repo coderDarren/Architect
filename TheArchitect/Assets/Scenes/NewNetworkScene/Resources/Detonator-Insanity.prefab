@@ -387,8 +387,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f03951fee9bec9478d1ec979ba44677, type: 3}
   - {fileID: 8300000, guid: 33cd429e81395944088573e40e271f18, type: 3}
   distanceThreshold: 50
-  minVolume: .400000006
-  maxVolume: 1
+  minVolume: .0500000007
+  maxVolume: .100000001
   rolloffFactor: .5
 --- !u!1002 &11400017
 EditorExtensionImpl:
@@ -399,7 +399,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: minVolume
+      value: .0500000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxVolume
+      value: .100000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
