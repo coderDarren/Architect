@@ -215,6 +215,11 @@ public class PlayerPowers : MonoBehaviour {
         {
             victim.GetComponent<Trap_Bomb>().KillBomb();
         }
+
+        if (victim.tag.Equals("BarrierButton"))
+        {
+            victim.GetComponent<BarrierButton>().PushButton();
+        }
     }
 
 }

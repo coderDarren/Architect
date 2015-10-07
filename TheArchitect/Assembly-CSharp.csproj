@@ -133,6 +133,8 @@
      <Compile Include="Assets\Scripts\Character\ragDollReplace.cs" />
      <Compile Include="Assets\Scripts\ColorOvertime.cs" />
      <Compile Include="Assets\Scripts\Environment\GateColour.cs" />
+     <Compile Include="Assets\Scripts\Interactable\BarrierButton.cs" />
+     <Compile Include="Assets\Scripts\Interactable\BarrierWall.cs" />
      <Compile Include="Assets\Scripts\Interactable\TileBehavior.cs" />
      <Compile Include="Assets\Scripts\Menu\ButtonBrancher.cs" />
      <Compile Include="Assets\Scripts\Menu\ButtonFader.cs" />
