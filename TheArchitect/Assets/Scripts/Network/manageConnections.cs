@@ -539,7 +539,7 @@ public class manageConnections : Photon.MonoBehaviour {
 //		GUI.Box(new Rect(180, 10, 140, 35), "<color=black>Map Name</color>");
 //		GUI.Box(new Rect(325, 10, 130, 35), "<color=black>Game Mode</color>");
 		GUI.Box(new Rect(460, 10, 80, 35), "<color=black>Players</color>");
-		GUI.Box(new Rect(545, 10, 60, 35), "<color=black>Ping</color");
+		GUI.Box(new Rect(545, 10, 60, 35), "<color=black>Ping</color>");
 		//Refresh ServerList
 		if (GUI.Button(new Rect(610, 10, 130, 35), "<color=black>Refresh</color>"))
 		{
