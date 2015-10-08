@@ -391,115 +391,115 @@ public class manageConnections : Photon.MonoBehaviour {
 		hostName = GUI.TextField ( new Rect(200,35,220,30), hostName, 20);
 		
 		
-		//Max Player Select
-		GUILayout.BeginHorizontal();
-		GUI.Box ( new Rect(30,70,150,30),"Max Players: ");
-		if (GUI.Button( new Rect(200,70,40,30), "<<", "Box")){
-			if(players < maxPlayers.Length){ 
-				players--;	
-				if(players < 0) players = maxPlayers.Length - 1;
-			}	
-		}
-		
-		GUI.Box( new Rect(260,70,100,30), maxPlayers[players].ToString());
-		if (GUI.Button( new Rect(380,70,40,30), ">>", "Box")){
-			if(players < maxPlayers.Length){ 
-				players++;
-				if(players > (maxPlayers.Length - 1)) players = 0;	
-				
-			}
-		}
-		GUILayout.EndHorizontal();
+//		//Max Player Select
+//		GUILayout.BeginHorizontal();
+//		GUI.Box ( new Rect(30,70,150,30),"Max Players: ");
+//		if (GUI.Button( new Rect(200,70,40,30), "<<", "Box")){
+//			if(players < maxPlayers.Length){ 
+//				players--;	
+//				if(players < 0) players = maxPlayers.Length - 1;
+//			}	
+//		}
+//		
+//		GUI.Box( new Rect(260,70,100,30), maxPlayers[players].ToString());
+//		if (GUI.Button( new Rect(380,70,40,30), ">>", "Box")){
+//			if(players < maxPlayers.Length){ 
+//				players++;
+//				if(players > (maxPlayers.Length - 1)) players = 0;	
+//				
+//			}
+//		}
+//		GUILayout.EndHorizontal();
 		//Room Time select
-		GUILayout.BeginHorizontal();
-		GUI.Box(new Rect(30, 110, 150, 30), "Max Time: ");
-		if (GUI.Button(new Rect(200, 110, 40, 30), "<<", "Box"))
-		{
-			if (r_Time < RoomTime.Length)
-			{
-				r_Time--;
-				if (r_Time < 0)
-				{
-					r_Time = RoomTime.Length - 1;
-					
-				}
-			}
-		}
-		
-		GUI.Box(new Rect(260, 110, 100, 30), (RoomTime[r_Time] / 60) + " <size=12>Min</size>");
-		if (GUI.Button(new Rect(380, 110, 40, 30), ">>", "Box"))
-		{
-			if (r_Time < RoomTime.Length)
-			{
-				r_Time++;
-				if (r_Time > (RoomTime.Length - 1))
-				{
-					r_Time = 0;
-					
-				}
-				
-			}
-		}
-		GUILayout.EndHorizontal();
+//		GUILayout.BeginHorizontal();
+//		GUI.Box(new Rect(30, 110, 150, 30), "Max Time: ");
+//		if (GUI.Button(new Rect(200, 110, 40, 30), "<<", "Box"))
+//		{
+//			if (r_Time < RoomTime.Length)
+//			{
+//				r_Time--;
+//				if (r_Time < 0)
+//				{
+//					r_Time = RoomTime.Length - 1;
+//					
+//				}
+//			}
+//		}
+//		
+//		GUI.Box(new Rect(260, 110, 100, 30), (RoomTime[r_Time] / 60) + " <size=12>Min</size>");
+//		if (GUI.Button(new Rect(380, 110, 40, 30), ">>", "Box"))
+//		{
+//			if (r_Time < RoomTime.Length)
+//			{
+//				r_Time++;
+//				if (r_Time > (RoomTime.Length - 1))
+//				{
+//					r_Time = 0;
+//					
+//				}
+//				
+//			}
+//		}
+//		GUILayout.EndHorizontal();
 		//GameMode Select
-		GUILayout.BeginHorizontal();
-		GUI.Box(new Rect(30, 150, 150, 30), "Game Mode: ");
-		if (GUI.Button(new Rect(200, 150, 40, 30), "<<", "Box"))
-		{
-			if (CurrentGameMode < GameModes.Length)
-			{
-				CurrentGameMode--;
-				if (CurrentGameMode < 0)
-				{
-					CurrentGameMode = GameModes.Length - 1;
-					
-				}
-			}
-		}
-		
-		GUI.Box(new Rect(260, 150, 100, 30), GameModes[CurrentGameMode]);
-		if (GUI.Button(new Rect(380, 150, 40, 30), ">>", "Box"))
-		{
-			if (CurrentGameMode < GameModes.Length)
-			{
-				CurrentGameMode++;
-				if (CurrentGameMode > (GameModes.Length - 1))
-				{
-					CurrentGameMode = 0;
-				}
-			}
-		}
-		GUILayout.EndHorizontal();
-		GUILayout.BeginHorizontal();
-		if (GUI.Button(new Rect(25, 190, 75, 30), "<<","Box"))
-		{
-			if (CurrentScene < m_scenes.Count)
-			{
-				CurrentScene--;
-				if (CurrentScene < 0)
-				{
-					CurrentScene = m_scenes.Count - 1;
-					
-				}
-			}
-		}
-		GUI.DrawTexture(new Rect(100, 190, 250, 100), m_scenes[CurrentScene].m_Preview);
-		GUI.Box(new Rect(100, 265, 250, 25), m_scenes[CurrentScene].m_name);
-		if (GUI.Button(new Rect(350, 190, 75, 30), ">>", "Box"))
-		{
-			if (CurrentScene < m_scenes.Count)
-			{
-				CurrentScene++;
-				if (CurrentScene > (m_scenes.Count - 1))
-				{
-					CurrentScene = 0;
-				}
-			}
-		}
-		GUILayout.EndHorizontal();
-		
-		GamePerRounds = GUI.Toggle(new Rect(265, 300, 200, 30), GamePerRounds, "Game Per Rounds");
-		AutoTeamSelection = GUI.Toggle(new Rect(30, 300, 200, 30), AutoTeamSelection, "Auto Team Selection");
+//		GUILayout.BeginHorizontal();
+//		GUI.Box(new Rect(30, 150, 150, 30), "Game Mode: ");
+//		if (GUI.Button(new Rect(200, 150, 40, 30), "<<", "Box"))
+//		{
+//			if (CurrentGameMode < GameModes.Length)
+//			{
+//				CurrentGameMode--;
+//				if (CurrentGameMode < 0)
+//				{
+//					CurrentGameMode = GameModes.Length - 1;
+//					
+//				}
+//			}
+//		}
+//		
+//		GUI.Box(new Rect(260, 150, 100, 30), GameModes[CurrentGameMode]);
+//		if (GUI.Button(new Rect(380, 150, 40, 30), ">>", "Box"))
+//		{
+//			if (CurrentGameMode < GameModes.Length)
+//			{
+//				CurrentGameMode++;
+//				if (CurrentGameMode > (GameModes.Length - 1))
+//				{
+//					CurrentGameMode = 0;
+//				}
+//			}
+//		}
+//		GUILayout.EndHorizontal();
+//		GUILayout.BeginHorizontal();
+//		if (GUI.Button(new Rect(25, 190, 75, 30), "<<","Box"))
+//		{
+//			if (CurrentScene < m_scenes.Count)
+//			{
+//				CurrentScene--;
+//				if (CurrentScene < 0)
+//				{
+//					CurrentScene = m_scenes.Count - 1;
+//					
+//				}
+//			}
+//		}
+//		GUI.DrawTexture(new Rect(100, 190, 250, 100), m_scenes[CurrentScene].m_Preview);
+//		GUI.Box(new Rect(100, 265, 250, 25), m_scenes[CurrentScene].m_name);
+//		if (GUI.Button(new Rect(350, 190, 75, 30), ">>", "Box"))
+//		{
+//			if (CurrentScene < m_scenes.Count)
+//			{
+//				CurrentScene++;
+//				if (CurrentScene > (m_scenes.Count - 1))
+//				{
+//					CurrentScene = 0;
+//				}
+//			}
+//		}
+//		GUILayout.EndHorizontal();
+//		
+//		GamePerRounds = GUI.Toggle(new Rect(265, 300, 200, 30), GamePerRounds, "Game Per Rounds");
+//		AutoTeamSelection = GUI.Toggle(new Rect(30, 300, 200, 30), AutoTeamSelection, "Auto Team Selection");
 		
 		
 		GUILayout.BeginHorizontal();	
