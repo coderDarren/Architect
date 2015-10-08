@@ -35,7 +35,9 @@ public class manageConnections : Photon.MonoBehaviour {
 	[Space(5)]
 	public string[] GameModes;
 	private int CurrentGameMode = 0;
-	
+	//Character Selection
+	public string mySelection;
+	public bool architectSelected;
 	//Max players in game
 	public byte[] maxPlayers;
 	private int players;
@@ -389,8 +391,23 @@ public class manageConnections : Photon.MonoBehaviour {
 		GUI.Box ( new Rect(30,35,150,30),"<color=black>Host Name: </color>");
 		hostName = hostName.Replace("\n", "");
 		hostName = GUI.TextField ( new Rect(200,35,220,30), hostName, 20);
-		
-		
+
+		//Select Player Type Architect or Regular Player
+		GUILayout.BeginHorizontal();
+		GUI.Box ( new Rect(30,70,150,30),"<color=black>Player Selection: </color>");
+		if (GUI.Button( new Rect(200,70,80,30), "<color=black>Architect</color>", "Box"))
+		{
+			mySelection = PropertiesKeys.ArchitectKey.ToString();
+			architectSelected = true;
+		}
+		if (!architectSelected)
+		{
+			if (GUI.Button( new Rect(340,70,80,30), "<color=black>Player</color>", "Box"))
+			{
+				mySelection = PropertiesKeys.BasicPlayerKey.ToString();
+			}
+		}
+		GUILayout.EndHorizontal();
 //		//Max Player Select
 //		GUILayout.BeginHorizontal();
 //		GUI.Box ( new Rect(30,70,150,30),"Max Players: ");
@@ -569,7 +586,7 @@ public class manageConnections : Photon.MonoBehaviour {
 				GUILayout.EndHorizontal();
 			}
 			
-			if (roomList.Length == 0 && !loading) GUI.Label(new Rect(320, 150, 200, 30), "No room created ... create one.");
+			if (roomList.Length == 0 && !loading) GUI.Label(new Rect(320, 150, 200, 30), "<color=black>No room created ... create one.</color>");
 		}
 		GUI.EndScrollView();
 		GUILayout.EndArea();

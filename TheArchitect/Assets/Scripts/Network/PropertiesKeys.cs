@@ -16,4 +16,6 @@ public class PropertiesKeys : MonoBehaviour
 	public const string KillsKey = "Kills";
 	public const string DeathsKey = "Deaths";
 	public const string ScoreKey = "Score";
+	public const string ArchitectKey = "Architect";
+	public const string BasicPlayerKey = "BasicPlayer";
 }
