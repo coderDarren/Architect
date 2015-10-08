@@ -536,8 +536,8 @@ public class manageConnections : Photon.MonoBehaviour {
 		GUILayout.BeginArea( new Rect(Screen.width/2 - 400, Screen.height/2 - 180, 800, 400),Skin.box);
 		
 		GUI.Box(new Rect(25, 10, 150, 35), "<color=black>Host Name</color>");
-		GUI.Box(new Rect(180, 10, 140, 35), "<color=black>Map Name</color>");
-		GUI.Box(new Rect(325, 10, 130, 35), "<color=black>Game Mode</color>");
+//		GUI.Box(new Rect(180, 10, 140, 35), "<color=black>Map Name</color>");
+//		GUI.Box(new Rect(325, 10, 130, 35), "<color=black>Game Mode</color>");
 		GUI.Box(new Rect(460, 10, 80, 35), "<color=black>Players</color>");
 		GUI.Box(new Rect(545, 10, 60, 35), "<color=black>Ping</color");
 		//Refresh ServerList
