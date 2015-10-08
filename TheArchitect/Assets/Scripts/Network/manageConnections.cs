@@ -249,10 +249,10 @@ public class manageConnections : Photon.MonoBehaviour {
 	public void EnterName (){
 		
 		playerName = playerName.Replace("\n", "");
-		GUILayout.BeginArea(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 57, 375, 135), "<color=black>Player Name</color>","window");
+		GUILayout.BeginArea(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 57, 375, 135), "<color=white>Player Name</color>","window");
 		GUILayout.Space(10);
 		GUILayout.BeginHorizontal("box");
-		GUILayout.Label("Player Name : ");
+		GUILayout.Label("<color=black>Player Name : </color>");
 		GUILayout.Space(5);
 		GUI.SetNextControlName("user");
 		playerName = playerName.Replace("\n", "");
@@ -386,7 +386,7 @@ public class manageConnections : Photon.MonoBehaviour {
 		GUILayout.Space(10);
 		GUILayout.BeginVertical();
 		GUILayout.Space(15);
-		GUI.Box ( new Rect(30,35,150,30),"Host Name: ");
+		GUI.Box ( new Rect(30,35,150,30),"<color=black>Host Name: </color>");
 		hostName = hostName.Replace("\n", "");
 		hostName = GUI.TextField ( new Rect(200,35,220,30), hostName, 20);
 		
@@ -535,13 +535,13 @@ public class manageConnections : Photon.MonoBehaviour {
 	void ServerList (){
 		GUILayout.BeginArea( new Rect(Screen.width/2 - 400, Screen.height/2 - 180, 800, 400),Skin.box);
 		
-		GUI.Box(new Rect(25, 10, 150, 35), "Host Name");
-		GUI.Box(new Rect(180, 10, 140, 35), "Map Name");
-		GUI.Box(new Rect(325, 10, 130, 35), "Game Mode");
-		GUI.Box(new Rect(460, 10, 80, 35), "Players");
-		GUI.Box(new Rect(545, 10, 60, 35), "Ping");
+		GUI.Box(new Rect(25, 10, 150, 35), "<color=black>Host Name</color>");
+		GUI.Box(new Rect(180, 10, 140, 35), "<color=black>Map Name</color>");
+		GUI.Box(new Rect(325, 10, 130, 35), "<color=black>Game Mode</color>");
+		GUI.Box(new Rect(460, 10, 80, 35), "<color=black>Players</color>");
+		GUI.Box(new Rect(545, 10, 60, 35), "<color=black>Ping</color");
 		//Refresh ServerList
-		if (GUI.Button(new Rect(610, 10, 130, 35), "Refresh"))
+		if (GUI.Button(new Rect(610, 10, 130, 35), "<color=black>Refresh</color>"))
 		{
 			StartCoroutine(RefresListIE());
 			
