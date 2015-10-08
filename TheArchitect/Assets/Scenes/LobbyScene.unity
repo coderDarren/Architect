@@ -354,8 +354,8 @@ MonoBehaviour:
   AppVersion: 1.0
   Port: 5055
   Skin: {fileID: 11400000, guid: d22e8f4740e854a0fb6a9aaea44a9588, type: 2}
-  ShowPhotonStatus: 0
-  ShowPhotonStatics: 1
+  ShowPhotonStatus: 1
+  ShowPhotonStatics: 0
   loading: 0
   GameModes: []
   maxPlayers: 

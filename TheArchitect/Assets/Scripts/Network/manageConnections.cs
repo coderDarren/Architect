@@ -507,21 +507,21 @@ public class manageConnections : Photon.MonoBehaviour {
 		if(GUI.Button( new Rect(150,330,175,50),"Create Game")) { 
 			PhotonNetwork.player.name = playerName;
 			//Save Room properties for load in room
-			ExitGames.Client.Photon.Hashtable roomOption = new ExitGames.Client.Photon.Hashtable();
-			roomOption[PropertiesKeys.TimeRoomKey] = RoomTime[r_Time];
-			roomOption[PropertiesKeys.GameModeKey] = GameModes[CurrentGameMode];
-			roomOption[PropertiesKeys.SceneNameKey] = m_scenes[CurrentScene].m_SceneName;
-			roomOption[PropertiesKeys.RoomRoundKey] = GamePerRounds ? "1" : "0";
-			roomOption[PropertiesKeys.TeamSelectionKey] = AutoTeamSelection ? "1" : "0";
-			
-			string[] properties= new string[5];
-			properties[0] = PropertiesKeys.TimeRoomKey;
-			properties[1] = PropertiesKeys.GameModeKey;
-			properties[2] = PropertiesKeys.SceneNameKey;
-			properties[3] = PropertiesKeys.RoomRoundKey;
-			properties[4] = PropertiesKeys.TeamSelectionKey;
+//			ExitGames.Client.Photon.Hashtable roomOption = new ExitGames.Client.Photon.Hashtable();
+//			roomOption[PropertiesKeys.TimeRoomKey] = RoomTime[r_Time];
+//			roomOption[PropertiesKeys.GameModeKey] = GameModes[CurrentGameMode];
+//			roomOption[PropertiesKeys.SceneNameKey] = m_scenes[CurrentScene].m_SceneName;
+//			roomOption[PropertiesKeys.RoomRoundKey] = GamePerRounds ? "1" : "0";
+//			roomOption[PropertiesKeys.TeamSelectionKey] = AutoTeamSelection ? "1" : "0";
+//			
+//			string[] properties= new string[5];
+//			properties[0] = PropertiesKeys.TimeRoomKey;
+//			properties[1] = PropertiesKeys.GameModeKey;
+//			properties[2] = PropertiesKeys.SceneNameKey;
+//			properties[3] = PropertiesKeys.RoomRoundKey;
+//			properties[4] = PropertiesKeys.TeamSelectionKey;
 			//					RoomOptions ro = new RoomOptions() {maxPlayers = maxPlayers[players], isVisible = true, isOpen = true, customRoomProperties = roomOption, cleanupCacheOnLeave = true, customRoomPropertiesForLobby = properties};
-			PhotonNetwork.CreateRoom(hostName, new RoomOptions() {maxPlayers = maxPlayers[players], isVisible = true, isOpen = true, customRoomProperties = roomOption, cleanupCacheOnLeave = true, customRoomPropertiesForLobby = properties}, null);
+			PhotonNetwork.CreateRoom(hostName, new RoomOptions() {maxPlayers = 5, isVisible = true, isOpen = true, cleanupCacheOnLeave = true}, null);
 		}
 		
 		GUILayout.Space(20);	
