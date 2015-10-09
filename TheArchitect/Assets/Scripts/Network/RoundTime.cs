@@ -24,7 +24,7 @@ public class RoundTime : MonoBehaviour {
 	private float m_Reference;
 	private int m_countdown = 10;
 	private bool isFinish = false;
-	private bl_SettingPropiertis m_propiertis;
+	private SettingProperties m_propiertis;
 	private RoomMenu RoomMenu;
 	
 	void Awake()
@@ -36,7 +36,7 @@ public class RoundTime : MonoBehaviour {
 		}
 		
 		GetTime();
-		m_propiertis = this.GetComponent<bl_SettingPropiertis>();
+		m_propiertis = this.GetComponent<SettingProperties>();
 		RoomMenu = this.GetComponent<RoomMenu>();
 	}
 	/// <summary>
@@ -44,7 +44,7 @@ public class RoundTime : MonoBehaviour {
 	/// </summary>
 	void GetTime()
 	{
-		RoundDuration = (int)PhotonNetwork.room.customProperties[PropiertiesKeys.TimeRoomKey];
+		RoundDuration = (int)PhotonNetwork.room.customProperties[PropertiesKeys.TimeRoomKey];
 		if (PhotonNetwork.isMasterClient)
 		{
 			m_Reference = (float)PhotonNetwork.time;

@@ -14,7 +14,7 @@ public class GameManager : PhotonHelper {
 	/// </summary>
 	public GameObject Architect;
 	/// <summary>
-	/// Player Prefabs for Team 2
+	/// Player Prefabs for Players
 	/// </summary>
 	public GameObject Player;
 	/// <summary>
@@ -32,7 +32,7 @@ public class GameManager : PhotonHelper {
 	/// <summary>
 	/// Spawn Points for Architect
 	/// </summary>
-	public Transform ArchitectSpawnPoint;
+	public Transform[] ArchitectSpawnPoint;
 	[Space(5)]
 
 	public Canvas mOverlayCanvas = null;
@@ -63,29 +63,26 @@ public class GameManager : PhotonHelper {
 		PhotonNetwork.player.SetCustomProperties(PlayerTeam);
 		
 		
-		if (t_team == Team.Recon)
+		if (t_team == Team.Architect)
 		{
-			OurPlayer = PhotonNetwork.Instantiate(Player_Team_1.name, GetSpawn(ReconSpawnPoint), Quaternion.identity, 0);
+			OurPlayer = PhotonNetwork.Instantiate(Architect.name, GetSpawn(ArchitectSpawnPoint), Quaternion.identity, 0);
 		}
-		else if (t_team == Team.Delta)
+		else if (t_team == Team.BasicPlayer)
 		{
-			OurPlayer = PhotonNetwork.Instantiate(Player_Team_2.name, GetSpawn(DeltaSpawnPoint), Quaternion.identity, 0);
+			OurPlayer = PhotonNetwork.Instantiate(Player.name, GetSpawn(PlayerSpawnPoints), Quaternion.identity, 0);
 		}
 		else
 		{
-			OurPlayer = PhotonNetwork.Instantiate(Player_Team_1.name, GetSpawn(AllSpawnPoints), Quaternion.identity, 0);
+
 		}
-		
-		this.GetComponent<bl_ChatRoom>().AddLine("Spawn in " + t_team.ToString() + " Team");
-		this.GetComponent<bl_ChatRoom>().Refresh();
+
 		m_RoomCamera.gameObject.SetActive(false);
 		if (mOverlayCanvas != null)
 		{
 			Camera cam = GameObject.FindWithTag("WeaponCam").GetComponent<Camera>();
 			mOverlayCanvas.worldCamera = cam;
 		}
-		StartCoroutine(bl_RoomMenu.FadeOut(1));
-		bl_UtilityHelper.LockCursor(true);
+		StartCoroutine(RoomMenu.FadeOut(1));
 	}
 	/// <summary>
 	/// If Player exist, them destroy
@@ -105,7 +102,7 @@ public class GameManager : PhotonHelper {
 	public Vector3 GetSpawn(Transform[] list)
 	{
 		int random = Random.Range(0, list.Length);
-		Vector3 s = Random.insideUnitSphere * list[random].GetComponent<bl_SpawnPoint>().SpawnSpace;
+		Vector3 s = Random.insideUnitSphere * list[random].GetComponent<SpawnPoint>().SpawnSpace;
 		Vector3 pos = list[random].position + new Vector3(s.x, 0, s.z);
 		return pos;
 	}
@@ -121,7 +118,6 @@ public class GameManager : PhotonHelper {
 	{
 		base.OnMasterClientSwitched(newMaster);
 		Debug.Log("The old masterclient left, we have a new masterclient: " + newMaster);
-		this.GetComponent<bl_ChatRoom>().AddLine("We have a new masterclient: " + newMaster);
 	}
 	
 	public override void OnDisconnectedFromPhoton()

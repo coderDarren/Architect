@@ -19,10 +19,6 @@ public class RoomMenu : PhotonHelper
 	public bool showMenu = true;
 	[HideInInspector]
 	public bool isFinish = false;
-	/// <summary>
-	/// Reference of player class select
-	/// </summary>
-	public static PlayerClass m_playerclass = PlayerClass.Assault;
 	
 	public bool AutoTeamSelection = false;
 	
@@ -80,10 +76,6 @@ public class RoomMenu : PhotonHelper
 		{
 			StartCoroutine(CanSpawnIE());
 		}
-		if (VignetteImage)
-		{
-			VignetteImage.color = new Color(VignetteImage.color.r, VignetteImage.color.b, VignetteImage.color.g, VigAlpha);
-		}
 		StartCoroutine(FadeOut(1.5f));
 		GetPrefabs();
 		
@@ -95,7 +87,6 @@ public class RoomMenu : PhotonHelper
 		{
 			showMenu = true;
 			m_showScoreBoard = false;
-			bl_UtilityHelper.LockCursor(false);
 		}
 		if (Input.GetKeyDown(KeyCode.N) && !showMenu)
 		{
@@ -114,121 +105,6 @@ public class RoomMenu : PhotonHelper
 		{
 			AutoTeam();
 		}
-		if (isPlaying && Input.GetKeyDown(KeyCode.M) && ButtonsClassPlay != null)
-		{
-			m_showbuttons = !m_showbuttons;
-			if (m_showbuttons)
-			{
-				if (!ButtonsClassPlay.activeSelf)
-				{
-					ButtonsClassPlay.SetActive(true);
-					bl_UtilityHelper.LockCursor(false);
-				}
-			}
-			else
-			{
-				if (ButtonsClassPlay.activeSelf)
-				{
-					ButtonsClassPlay.SetActive(false);
-					bl_UtilityHelper.LockCursor(true);
-				}
-			}
-		}
-		if (bl_GameManager.isAlive && isPlaying)
-		{
-			if (m_CanvasRoot != null && !m_CanvasRoot.enabled)
-			{
-				m_CanvasRoot.enabled = true;
-			}
-		}
-		else
-		{
-			if (m_CanvasRoot != null && m_CanvasRoot.enabled)
-			{
-				m_CanvasRoot.enabled = false;
-			}
-		}
-	}
-	
-	void FixedUpdate()
-	{
-		if (GetGameMode == GameMode.FFA)
-		{
-			m_playerlist.Clear();
-			m_playerlist = GetPlayerList;
-			if (m_playerlist.Count > 0 && m_playerlist != null)
-			{
-				m_playerlist.Sort(GetSortPlayerByKills);
-				PlayerStar = m_playerlist[0].name;
-			}
-		}
-	}
-	
-	void AutoTeam()
-	{
-		if (CanSpawn && !isPlaying && !AlredyAuto)
-		{
-			AlredyAuto = true;
-			if (GetGameMode == GameMode.TDM || GetGameMode == GameMode.CTF)
-			{
-				if (GetPlayerInDeltaCount > GetPlayerInReconCount)
-				{
-					bl_UtilityHelper.LockCursor(true);
-					showMenu = false;
-					GM.SpawnPlayer(Team.Recon);
-					bl_EventHandler.KillEvent(PhotonNetwork.player.name, "", "Joined in Recon", Team.Recon.ToString(), 777, 30);
-					isPlaying = true;
-				}
-				else if (GetPlayerInDeltaCount < GetPlayerInReconCount)
-				{
-					bl_UtilityHelper.LockCursor(true);
-					showMenu = false;
-					GM.SpawnPlayer(Team.Delta);
-					bl_EventHandler.KillEvent(PhotonNetwork.player.name, "", "Joined in Delta", Team.Delta.ToString(), 777, 30);
-					isPlaying = true;
-				}
-				else if (GetPlayerInDeltaCount == GetPlayerInReconCount)
-				{
-					bl_UtilityHelper.LockCursor(true);
-					showMenu = false;
-					GM.SpawnPlayer(Team.Delta);
-					bl_EventHandler.KillEvent(PhotonNetwork.player.name, "", "Joined in Delta", Team.Delta.ToString(), 777, 30);
-					isPlaying = true;
-				}
-			}
-			
-			
-		}
-	}
-	void OnGUI()
-	{
-		GUI.skin = SKin;
-		if (showMenu)
-		{
-			MainMenu();
-		} 
-		if (ShowWarningPing && WarningPing != null)
-		{
-			GUI.color = new Color(1, 1, 1, 0.8f);
-			GUI.DrawTexture(new Rect(Screen.width / 2 - 37, Screen.height - 76, 75, 75), WarningPing);
-			GUI.Label(new Rect(Screen.width / 2 + 38, Screen.height - 43, 200, 60), MsnMaxPing);
-			GUI.color = Color.white;
-		}
-		if (FadeBlackTexture == null)
-			return;
-		
-		if (m_alphafade > 0.0f)
-		{
-			GUI.color = new Color (1,1,1,m_alphafade);
-			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),FadeBlackTexture);
-		}
-		GUI.color = Color.white;
-		
-		if (AutoTeamSelection && !isPlaying && !AlredyAuto && GetGameMode == GameMode.TDM || AutoTeamSelection && !isPlaying && !AlredyAuto && GetGameMode == GameMode.CTF)
-		{
-			bl_UtilityHelper.ShadowLabel(new Rect(Screen.width / 2 - 75, Screen.height / 2 + 50, 200, 30), "Wait For Select Team...");
-		}
-		OnlyScoreBoard();
 	}
 	
 	void MainMenu()
@@ -747,59 +623,6 @@ public class RoomMenu : PhotonHelper
 				list.Add(players);
 			}
 			return list;
-		}
-	}
-	/// <summary>
-	/// Get the total players in team Delta
-	/// </summary>
-	public int GetPlayerInDeltaCount
-	{
-		get
-		{
-			int count = 0;
-			foreach (PhotonPlayer players in PhotonNetwork.playerList)
-			{
-				if ((string)players.customProperties[PropiertiesKeys.TeamKey] == Team.Delta.ToString())
-				{
-					count++;
-				}
-			}
-			return count;
-		}
-	}
-	/// <summary>
-	/// Get the total players in team Recon
-	/// </summary>
-	public int GetPlayerInReconCount
-	{
-		get
-		{
-			int count = 0;
-			foreach (PhotonPlayer players in PhotonNetwork.playerList)
-			{
-				if ((string)players.customProperties[PropiertiesKeys.TeamKey] == Team.Recon.ToString())
-				{
-					count++;
-				}
-			}
-			return count;
-		}
-	}
-	/// <summary>
-	/// Sort Player by Kills,for more info wacht this: http://answers.unity3d.com/questions/233917/custom-sorting-function-need-help.html
-	/// </summary>
-	/// <param name="player1"></param>
-	/// <param name="player2"></param>
-	/// <returns></returns>
-	private static int GetSortPlayerByKills(PhotonPlayer player1, PhotonPlayer player2)
-	{
-		if (player1.customProperties[PropiertiesKeys.KillsKey] != null && player2.customProperties[PropiertiesKeys.KillsKey] != null)
-		{
-			return (int)player2.customProperties[PropiertiesKeys.KillsKey] - (int)player1.customProperties[PropiertiesKeys.KillsKey];
-		}
-		else
-		{
-			return 0;
 		}
 	}
 	
