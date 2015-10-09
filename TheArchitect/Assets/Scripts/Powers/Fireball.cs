@@ -4,6 +4,7 @@ using System.Collections;
 public class Fireball : MonoBehaviour
 {
     Vector3 syncPos;
+	public float fireBallDamage = 25.0f;
 
     public GameObject sparksOnCollision;
     public float speed = 4;

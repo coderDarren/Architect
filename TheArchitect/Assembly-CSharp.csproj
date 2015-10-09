@@ -129,6 +129,7 @@
      <Compile Include="Assets\Scripts\Character\CanvasLoader.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterAnimController.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterMovement.cs" />
+     <Compile Include="Assets\Scripts\Character\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Character\RagDollDestroy.cs" />
      <Compile Include="Assets\Scripts\Character\ragDollReplace.cs" />
      <Compile Include="Assets\Scripts\ColorOvertime.cs" />
@@ -151,6 +152,7 @@
      <Compile Include="Assets\Scripts\Network\PropertiesKeys.cs" />
      <Compile Include="Assets\Scripts\Network\RoomMenu.cs" />
      <Compile Include="Assets\Scripts\Network\RoundTime.cs" />
+     <Compile Include="Assets\Scripts\Network\SelectPlayer.cs" />
      <Compile Include="Assets\Scripts\Network\SettingProperties.cs" />
      <Compile Include="Assets\Scripts\Network\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Network\TESTING\ThirdPersonCamera.cs" />
