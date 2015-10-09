@@ -44,6 +44,10 @@ public class playerInGame : Photon.MonoBehaviour {
 	public void RemoveLevelComponents()
 	{
 		introCamera.SetActive(false);
+		foreach(GameObject go in startUI)
+		{
+			Destroy(go);
+		}
 	}
 	
 	public void OnMasterClientSwitched(PhotonPlayer player)
