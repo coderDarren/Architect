@@ -6,6 +6,7 @@ public class playerInGame : Photon.MonoBehaviour {
 	public GameObject playerPrefab;
     public GameObject archPrefab;
     public GameObject spawnPoint;
+	public GameObject archSpawnPoint;
 	
 	public void Awake()
 	{
@@ -18,11 +19,29 @@ public class playerInGame : Photon.MonoBehaviour {
         PhotonNetwork.sendRate = 30;
         PhotonNetwork.sendRateOnSerialize = 30;
 		// we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-		PhotonNetwork.Instantiate(playerPrefab.name, playerPrefab.transform.position, Quaternion.identity, 0);
+
+	}
+
+	public void AddPlayer()
+	{
+		PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity, 0);
+	}
+
+	public void AddArchitect()
+	{
+		PhotonNetwork.Instantiate(archPrefab.name, archSpawnPoint.transform.position, Quaternion.identity, 0);
 	}
 	
 	public void OnGUI()
 	{
+		if (GUILayout.Button ("Be The Architect"))
+		{
+			AddArchitect();
+		}
+		if (GUILayout.Button("Be The Mouse"))
+		{
+			AddPlayer();
+		}
 		if (GUILayout.Button("Return to Lobby"))
 		{
 			PhotonNetwork.LeaveRoom();  // we will load the menu level when we successfully left the room
