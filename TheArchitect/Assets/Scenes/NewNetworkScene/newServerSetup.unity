@@ -2639,6 +2639,10 @@ GameObject:
   - 4: {fileID: 628083480}
   - 114: {fileID: 628083482}
   - 114: {fileID: 628083483}
+  - 114: {fileID: 628083486}
+  - 114: {fileID: 628083485}
+  - 114: {fileID: 628083484}
+  - 114: {fileID: 628083481}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -2658,6 +2662,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &628083481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628083479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff43e135ea1c444aea268d724737dfac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  FFABox: {fileID: 0}
+  CTFObjects: {fileID: 0}
 --- !u!114 &628083482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2697,6 +2773,68 @@ MonoBehaviour:
   playerPrefab: {fileID: 197966, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
   archPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
+--- !u!114 &628083484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628083479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5553aec4055f0434b9f4796803101247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Style: {fileID: 11400000, guid: d22e8f4740e854a0fb6a9aaea44a9588, type: 2}
+  RoundDuration: 0
+  m_Manager: {fileID: 0}
+  CurrentTime: 0
+  UI:
+    TimeText: {fileID: 0}
+--- !u!114 &628083485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628083479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58be8341071014bd080b6c0b574f57e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlaying: 0
+  m_sensitive: 2
+  ShowWarningPing: 0
+  PlayerStar: 
+  showMenu: 1
+  isFinish: 0
+  AutoTeamSelection: 0
+  GM: {fileID: 628083486}
+  MaxPing: 500
+  MsnMaxPing: "Your <color=yellow>ping is too high</color> \n <size=12>check your
+    local coneccion.</size>"
+  RotateCamera: 1
+  RotSpeed: 5
+  SKin: {fileID: 11400000, guid: d22e8f4740e854a0fb6a9aaea44a9588, type: 2}
+--- !u!114 &628083486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 628083479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf66c4716bb8e4d1ebb6fa547021746e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OurPlayer: {fileID: 0}
+  Architect: {fileID: 195852, guid: b18532ded89fd574fb9d851d16cc2e74, type: 2}
+  Player: {fileID: 197966, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
+  m_RoomCamera: {fileID: 879470544}
+  PlayerSpawnPoints:
+  - {fileID: 1805205704}
+  ArchitectSpawnPoint:
+  - {fileID: 507287874}
+  mOverlayCanvas: {fileID: 0}
 --- !u!1001 &799144379
 Prefab:
   m_ObjectHideFlags: 0
@@ -2847,7 +2985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &879470541
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3725,7 +3863,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1805205703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 20, z: 0}
+  m_LocalPosition: {x: -46.2299995, y: .219999999, z: 14.8900003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
