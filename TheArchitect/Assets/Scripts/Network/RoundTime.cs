@@ -70,7 +70,7 @@ public class RoundTime : MonoBehaviour {
 		{
 			CurrentTime = 0;
 			
-			bl_EventHandler.OnRoundEndEvent();
+			EventHandler.OnRoundEndEvent();
 			if (!isFinish)
 			{
 				isFinish = true;
@@ -92,7 +92,7 @@ public class RoundTime : MonoBehaviour {
 		float remainingTime = Mathf.CeilToInt(CurrentTime);
 		int m_Seconds = Mathf.FloorToInt(remainingTime % normalSecons);
 		int m_Minutes = Mathf.FloorToInt((remainingTime / normalSecons) % normalSecons);
-		string t_time = bl_UtilityHelper.GetTimeFormat(m_Minutes, m_Seconds);
+		string t_time = UtilityHelper.GetTimeFormat(m_Minutes, m_Seconds);
 		
 		//OnGUI version
 		/*GUILayout.BeginArea(new Rect(Screen.width / 2 - 100, 0, 200, 35));
@@ -102,18 +102,6 @@ public class RoundTime : MonoBehaviour {
 		if (UI.TimeText != null)
 		{
 			UI.TimeText.text = "<size=9>Remaining</size> \n" + t_time;
-		}
-		
-		if (isFinish)
-		{
-			if (m_RoundStyle == RoundStyle.OneMacht)
-			{
-				GUI.Label(new Rect(Screen.width / 2 - 30, Screen.height / 2 + 25, 225, 60), "<size=15>Return to Lobby in</size> \n <size=30><color=orange>    " + bl_UtilityHelper.GetDoubleChar(m_countdown) + "</color></size>");
-			}
-			else if (m_RoundStyle == RoundStyle.Rounds)
-			{
-				GUI.Label(new Rect(Screen.width / 2 - 30, Screen.height / 2 + 25, 225, 60), "<size=15>Next Round in </size>\n <size=30><color=orange>    " + bl_UtilityHelper.GetDoubleChar(m_countdown) + "</color></size>");
-			}
 		}
 	}
 	
@@ -155,45 +143,8 @@ public class RoundTime : MonoBehaviour {
 		m_countdown--;
 		if (m_countdown <= 0)
 		{
-			FinishGame();
 			CancelInvoke("countdown");
 			m_countdown = 10;
-		}
-	}
-	
-	void FinishGame()
-	{
-		bl_UtilityHelper.LockCursor(false);
-		if (m_RoundStyle == RoundStyle.OneMacht)
-		{
-			if (PhotonNetwork.connected)
-			{
-				PhotonNetwork.LeaveRoom();
-			}
-			else
-			{
-				Application.LoadLevel(0);
-			}
-		}
-		if (m_RoundStyle == RoundStyle.Rounds)
-		{
-			GetTime();
-			if (m_propiertis)
-			{
-				m_propiertis.SettingPropiertis();
-			}
-			isFinish = false;          
-			if (m_Manager == null)
-				return;
-			
-			m_Manager.DestroyPlayer();
-			if (RoomMenu != null)
-			{
-				RoomMenu.isFinish = false;
-				RoomMenu.isPlaying = false;
-				RoomMenu.showMenu = true;
-				bl_UtilityHelper.LockCursor(false);
-			}
 		}
 	}
 	

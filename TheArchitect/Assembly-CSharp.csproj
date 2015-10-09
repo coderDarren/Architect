@@ -159,6 +159,7 @@
      <Compile Include="Assets\Scripts\Network\TESTING\networkPlayer.cs" />
      <Compile Include="Assets\Scripts\Network\TESTING\thirdPersonNetwork.cs" />
      <Compile Include="Assets\Scripts\Network\Team.cs" />
+     <Compile Include="Assets\Scripts\Network\UtilityHelper.cs" />
      <Compile Include="Assets\Scripts\Network\launchGame.cs" />
      <Compile Include="Assets\Scripts\Network\manageConnections.cs" />
      <Compile Include="Assets\Scripts\Network\playerInGame.cs" />
@@ -185,11 +186,17 @@
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
      <None Include="Assets\Shaders\Distortion.shader" />
      <None Include="Assets\Photon Unity Networking\changelog.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
  <HintPath>/Users/jaredhill/Development/UNITY/Architect/TheArchitect/Assets/Plugins/Photon3Unity3D.dll</HintPath>

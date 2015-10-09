@@ -82,7 +82,6 @@ public class GameManager : PhotonHelper {
 			Camera cam = GameObject.FindWithTag("WeaponCam").GetComponent<Camera>();
 			mOverlayCanvas.worldCamera = cam;
 		}
-		StartCoroutine(RoomMenu.FadeOut(1));
 	}
 	/// <summary>
 	/// If Player exist, them destroy
