@@ -128,7 +128,7 @@ public class GameManager : PhotonHelper {
         * To reset the scene we'll just reload it:
         */
 		PhotonNetwork.isMessageQueueRunning = false;
-		Application.LoadLevel("MainMenu");
+		Application.LoadLevel("LobbyScene");
 	}
 	//PLAYER EVENTS
 	public override void OnPhotonPlayerConnected(PhotonPlayer player)

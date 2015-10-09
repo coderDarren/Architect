@@ -392,22 +392,22 @@ public class manageConnections : Photon.MonoBehaviour {
 		hostName = hostName.Replace("\n", "");
 		hostName = GUI.TextField ( new Rect(200,35,220,30), hostName, 20);
 
-		//Select Player Type Architect or Regular Player
-		GUILayout.BeginHorizontal();
-		GUI.Box ( new Rect(30,70,150,30),"<color=black>Player Selection: </color>");
-		if (GUI.Button( new Rect(200,70,80,30), "<color=black>Architect</color>", "Box"))
-		{
-			mySelection = PropertiesKeys.ArchitectKey.ToString();
-			architectSelected = true;
-		}
-		if (!architectSelected)
-		{
-			if (GUI.Button( new Rect(340,70,80,30), "<color=black>Player</color>", "Box"))
-			{
-				mySelection = PropertiesKeys.BasicPlayerKey.ToString();
-			}
-		}
-		GUILayout.EndHorizontal();
+//		//Select Player Type Architect or Regular Player
+//		GUILayout.BeginHorizontal();
+//		GUI.Box ( new Rect(30,70,150,30),"<color=black>Player Selection: </color>");
+//		if (GUI.Button( new Rect(200,70,80,30), "<color=black>Architect</color>", "Box"))
+//		{
+//			mySelection = PropertiesKeys.ArchitectKey.ToString();
+//			architectSelected = true;
+//		}
+//		if (!architectSelected)
+//		{
+//			if (GUI.Button( new Rect(340,70,80,30), "<color=black>Player</color>", "Box"))
+//			{
+//				mySelection = PropertiesKeys.BasicPlayerKey.ToString();
+//			}
+//		}
+//		GUILayout.EndHorizontal();
 //		//Max Player Select
 //		GUILayout.BeginHorizontal();
 //		GUI.Box ( new Rect(30,70,150,30),"Max Players: ");
