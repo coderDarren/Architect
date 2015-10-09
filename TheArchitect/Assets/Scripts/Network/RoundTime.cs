@@ -7,14 +7,10 @@ public class RoundTime : MonoBehaviour {
 	
 	public GUISkin Style;
 	/// <summary>
-	/// mode of the round room
-	/// </summary>
-	public RoundStyle m_RoundStyle;
-	/// <summary>
 	/// expected duration in round (automatically obtained)
 	/// </summary>
 	public int RoundDuration;
-	public bl_GameManager m_Manager = null;
+	public GameManager m_Manager = null;
 	[HideInInspector]
 	public float CurrentTime;
 	[System.Serializable]
@@ -29,7 +25,7 @@ public class RoundTime : MonoBehaviour {
 	private int m_countdown = 10;
 	private bool isFinish = false;
 	private bl_SettingPropiertis m_propiertis;
-	private bl_RoomMenu RoomMenu;
+	private RoomMenu RoomMenu;
 	
 	void Awake()
 	{
@@ -41,7 +37,7 @@ public class RoundTime : MonoBehaviour {
 		
 		GetTime();
 		m_propiertis = this.GetComponent<bl_SettingPropiertis>();
-		RoomMenu = this.GetComponent<bl_RoomMenu>();
+		RoomMenu = this.GetComponent<RoomMenu>();
 	}
 	/// <summary>
 	/// get the current time and verify if it is correct

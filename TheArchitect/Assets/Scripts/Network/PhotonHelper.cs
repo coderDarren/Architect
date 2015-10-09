@@ -6,30 +6,13 @@ using ExitGames.Client.Photon;
 public class PhotonHelper : Photon.PunBehaviour {
 	
 	protected string myTeam = string.Empty;
-	protected GameMode mGameMode = GameMode.FFA;
 
 	protected virtual void Awake()
 	{
 		if (!PhotonNetwork.connected)
 			return;
 		
-		myTeam = (string)PhotonNetwork.player.customProperties[PropiertiesKeys.TeamKey];
-		if ((string)PhotonNetwork.room.customProperties[PropiertiesKeys.GameModeKey] == GameMode.FFA.ToString())
-		{
-			mGameMode = GameMode.FFA;
-		}
-		else if ((string)PhotonNetwork.room.customProperties[PropiertiesKeys.GameModeKey] == GameMode.TDM.ToString())
-		{
-			mGameMode = GameMode.TDM;
-		}
-		else if ((string)PhotonNetwork.room.customProperties[PropiertiesKeys.GameModeKey] == GameMode.CTF.ToString())
-		{
-			mGameMode = GameMode.CTF;
-		}
-		else
-		{
-			mGameMode = GameMode.FFA;
-		}
+		myTeam = (string)PhotonNetwork.player.customProperties[PropertiesKeys.TeamKey];
 	}
 	/// <summary>
 	/// Find a player gameobject by the viewID 
@@ -152,21 +135,8 @@ public class PhotonHelper : Photon.PunBehaviour {
 		if (p == null || !isConnected)
 			return null;
 		
-		string t = (string)p.customProperties[PropiertiesKeys.TeamKey];
+		string t = (string)p.customProperties[PropertiesKeys.TeamKey];
 		return t;
-	}
-	/// <summary>
-	/// Get current gamemode
-	/// </summary>
-	public GameMode GetGameMode
-	{
-		get
-		{
-			if (!isConnected || PhotonNetwork.room == null)
-				return GameMode.TDM;
-			
-			return mGameMode;
-		}
 	}
 	
 	public string LocalName
@@ -212,7 +182,7 @@ public class PhotonHelper : Photon.PunBehaviour {
 		
 		foreach (PhotonPlayer pp in PhotonNetwork.playerList)
 		{
-			if ((string)pp.customProperties[PropiertiesKeys.TeamKey] == team)
+			if ((string)pp.customProperties[PropertiesKeys.TeamKey] == team)
 			{
 				p.Add(pp);
 			}
