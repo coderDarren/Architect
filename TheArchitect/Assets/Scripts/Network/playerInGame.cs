@@ -7,6 +7,8 @@ public class playerInGame : Photon.MonoBehaviour {
     public GameObject archPrefab;
     public GameObject spawnPoint;
 	public GameObject archSpawnPoint;
+	public GameObject introCamera;
+	public GameObject[] startUI;
 	
 	public void Awake()
 	{
@@ -24,28 +26,24 @@ public class playerInGame : Photon.MonoBehaviour {
 
 	public void AddPlayer()
 	{
+		RemoveLevelComponents();
 		PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity, 0);
 	}
 
 	public void AddArchitect()
 	{
+		RemoveLevelComponents();
 		PhotonNetwork.Instantiate(archPrefab.name, archSpawnPoint.transform.position, Quaternion.identity, 0);
 	}
-	
-	public void OnGUI()
+
+	public void AbandonShip()
 	{
-		if (GUILayout.Button ("Be The Architect"))
-		{
-			AddArchitect();
-		}
-		if (GUILayout.Button("Be The Mouse"))
-		{
-			AddPlayer();
-		}
-		if (GUILayout.Button("Return to Lobby"))
-		{
-			PhotonNetwork.LeaveRoom();  // we will load the menu level when we successfully left the room
-		}
+		PhotonNetwork.LeaveRoom();  // we will load the menu level when we successfully left the room
+	}
+
+	public void RemoveLevelComponents()
+	{
+		introCamera.SetActive(false);
 	}
 	
 	public void OnMasterClientSwitched(PhotonPlayer player)
