@@ -61,11 +61,7 @@ public class PlayerPowers : MonoBehaviour {
     {
         activePower = ActivePower.Laser;
         initialRotation = laser.LaserGun.transform.rotation;
-        GameObject go = PhotonView.Instantiate(laser.LaserObject);
-        go.transform.position = laser.LaserGun.transform.position;
-        laserLine = go.GetComponent<LineRenderer>();
-        laserLine.SetPosition(0, laser.LaserSpawn.position);
-        laserLine.SetPosition(1, go.transform.position);
+        
         laserSparks = null;
 
         laser.PowerSelectedArrow.SetActive(true);
@@ -128,6 +124,17 @@ public class PlayerPowers : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(laser.LaserSpawn.position, laser.LaserSpawn.forward, out hit, laser.range, laser.laserHitLayer)) //position laser based on gun's forward vector
             {
+                if (!laserLine)
+                {
+                    laserLine = PhotonNetwork.Instantiate(laser.LaserObject.name, laser.LaserGun.transform.position, Quaternion.identity, 0).GetComponent<LineRenderer>();
+                    laserLine.SetPosition(0, laser.LaserSpawn.position);
+                    laserLine.SetPosition(1, laserLine.transform.position);
+                }
+                else
+                {
+                    laserLine.SetPosition(0, laser.LaserSpawn.position);
+                    laserLine.SetPosition(1, hit.point);
+                }
                 if (!laserSparks) //only if we have not created the sparks or we set them back to null
                 {
                     //spawn sparks
@@ -138,8 +145,7 @@ public class PlayerPowers : MonoBehaviour {
                     //position sparks
                     laserSparks.transform.position = hit.point-((hit.point-laser.LaserSpawn.position)*0.02f);
                 }
-                laserLine.SetPosition(0, laser.LaserSpawn.position);
-                laserLine.SetPosition(1, hit.point);
+                
 
                 //check if the laser is hitting something
                 HandleLaserHit(hit.collider.gameObject);
@@ -147,24 +153,30 @@ public class PlayerPowers : MonoBehaviour {
             }
             else //if while dragging we go off the laser hit layer
             {
-                laserLine.SetPosition(0, laser.LaserSpawn.position);
-                laserLine.SetPosition(1, laser.LaserSpawn.position);
                 if (laserSparks)
                 {
                     PhotonNetwork.Destroy(laserSparks.GetComponent<PhotonView>());
                     laserSparks = null;
+                }
+                if (laserLine)
+                {
+                    PhotonNetwork.Destroy(laserLine.gameObject);
+                    laserLine = null;
                 }
             }
             
         }
         else
         {
-            laserLine.SetPosition(0, laser.LaserSpawn.position);
-            laserLine.SetPosition(1, laser.LaserSpawn.position);
             if (laserSparks)
             {
                 PhotonNetwork.Destroy(laserSparks.GetComponent<PhotonView>());
                 laserSparks = null;
+            }
+            if (laserLine)
+            {
+                PhotonNetwork.Destroy(laserLine.gameObject);
+                laserLine = null;
             }
         }
     }

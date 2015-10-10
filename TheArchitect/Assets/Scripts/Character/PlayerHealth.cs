@@ -66,6 +66,7 @@ public class PlayerHealth : Photon.MonoBehaviour {
 
 	void DisablePlayerBody()
 	{
+        Debug.Log("disabling player");
 		playerGun.SetActive(false);
 		playerBody.SetActive(false);
 	}

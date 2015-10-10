@@ -258,6 +258,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410714}
+  - 114: {fileID: 11445414}
   m_Layer: 9
   m_Name: PlayerGun
   m_TagString: Untagged
@@ -510,6 +511,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 420460}
+  - 114: {fileID: 11456572}
   m_Layer: 9
   m_Name: LaserSpawn
   m_TagString: Untagged
@@ -716,7 +718,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -90.5682602, y: -4.46000004, z: -23.1040192}
+  m_LocalPosition: {x: -47.6664543, y: -2.18000007, z: 12.4033661}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 22499786}
@@ -1359,6 +1361,32 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11445414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 410714}
+  - {fileID: 499060}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  isRuntimeInstantiated: 0
 --- !u!114 &11446968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1394,7 +1422,7 @@ MonoBehaviour:
   cam: {fileID: 2031704}
   activePower: 0
   laser:
-    recharge: 4
+    recharge: 0
     rechargeTimer: 0
     fireSpeed: 1
     rotateSmooth: 10
@@ -1411,7 +1439,7 @@ MonoBehaviour:
     ACTIVATE_INPUT: Power 1
     PowerSelectedArrow: {fileID: 164344}
   smoke:
-    recharge: 1
+    recharge: 10
     rechargeTimer: 0
     INPUT_AXIS: Fire1
     input: 0
@@ -1473,6 +1501,31 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11456572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 420460}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  isRuntimeInstantiated: 0
 --- !u!114 &11462356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2126,6 +2179,10 @@ Prefab:
       propertyPath: playerGun
       value: 
       objectReference: {fileID: 126702}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 197966}
