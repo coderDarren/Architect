@@ -73,7 +73,7 @@ public class PlayerHealth : Photon.MonoBehaviour {
 
 	void ReinstatePlayerBody()
 	{
-		GameObject ragDoll = PhotonNetwork.Instantiate(RagDoll.name, playerBody.transform.position, Quaternion.identity, 0);
+//		GameObject ragDoll = PhotonNetwork.Instantiate(RagDoll.name, playerBody.transform.position, Quaternion.identity, 0);
 		playerBody.SetActive(true);
 		playerGun.SetActive(true);
 	}
