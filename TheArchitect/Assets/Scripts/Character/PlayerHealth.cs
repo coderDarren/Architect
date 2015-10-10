@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour {
 	void Start()
 	{
 		originalTime = waitTime;
+		reSpawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
 	}
 
 	void OnTriggerEnter(Collider coll)
@@ -39,11 +40,13 @@ public class PlayerHealth : MonoBehaviour {
 	void TakeProjectileDamage(GameObject fireBall)
 	{
 		health -= fireBall.GetComponent<Fireball>().fireBallDamage;
+		Debug.Log ("Taking Fireball damage");
 	}
 
 	void TakeMineDamage(GameObject bomb)
 	{
 		health -= bomb.GetComponent<Trap_Bomb>().bombDamage;
+		Debug.Log ("Taking Bomb damage");
 	}
 
 	void Death()

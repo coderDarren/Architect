@@ -2845,9 +2845,9 @@ MonoBehaviour:
   spawnPoint: {fileID: 1805205703}
   archSpawnPoint: {fileID: 507287873}
   introCamera: {fileID: 879470540}
-  startUI:
-  - {fileID: 1224592418}
-  - {fileID: 1581076357}
+  archButton: {fileID: 1224592418}
+  playerButton: {fileID: 1581076357}
+  archSelected: 0
 --- !u!1001 &799144379
 Prefab:
   m_ObjectHideFlags: 0
@@ -3161,7 +3161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &894384013
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,7 +3285,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430268, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11427886, guid: 3f7d2c9072de85243b05ace5708288ab, type: 2}
       propertyPath: viewIdField

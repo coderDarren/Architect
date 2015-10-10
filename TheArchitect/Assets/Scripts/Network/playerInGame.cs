@@ -8,10 +8,13 @@ public class playerInGame : Photon.MonoBehaviour {
     public GameObject spawnPoint;
 	public GameObject archSpawnPoint;
 	public GameObject introCamera;
-	public GameObject[] startUI;
+	public GameObject archButton;
+	public GameObject playerButton;
+	public bool archSelected;
 	
 	public void Awake()
 	{
+		archSelected = false;
 		// in case we started this demo with the wrong scene being active, simply load the menu scene
 		if (!PhotonNetwork.connected)
 		{
@@ -32,6 +35,7 @@ public class playerInGame : Photon.MonoBehaviour {
 
 	public void AddArchitect()
 	{
+		archSelected = true;
 		RemoveLevelComponents();
 		PhotonNetwork.Instantiate(archPrefab.name, archSpawnPoint.transform.position, Quaternion.identity, 0);
 	}
@@ -44,10 +48,11 @@ public class playerInGame : Photon.MonoBehaviour {
 	public void RemoveLevelComponents()
 	{
 		introCamera.SetActive(false);
-		foreach(GameObject go in startUI)
+		if (archSelected)
 		{
-			Destroy(go);
+			PhotonNetwork.Destroy(archButton);
 		}
+		Destroy (playerButton);
 	}
 	
 	public void OnMasterClientSwitched(PhotonPlayer player)
