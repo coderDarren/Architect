@@ -32,7 +32,7 @@ public class PlayerHealth : Photon.MonoBehaviour {
 			Debug.Log ("Projectile Entered");
 			TakeProjectileDamage(coll.gameObject);
 		}
-		if (coll.tag == "Bomb")
+		if (coll.tag == "TrapBomb")
 		{
 			Debug.Log ("Bomb Entered");
 			TakeMineDamage(coll.gameObject);

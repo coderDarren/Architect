@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11478646}
   m_Layer: 0
   m_Name: Trap_Bomb
-  m_TagString: Untagged
+  m_TagString: TrapBomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62964f59ff60fce489d7fd1c94a59e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombDamage: 20
   sparksOnCollision: {fileID: 100000, guid: 8e02e06584f51ab42986fd44c73d976e, type: 2}
 --- !u!114 &11478646
 MonoBehaviour:
@@ -158,6 +159,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: instantiationId
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: TrapBomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
