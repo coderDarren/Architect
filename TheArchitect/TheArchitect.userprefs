@@ -1,13 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character/PlayerHealth.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network/playerInGame.cs">
     <Files>
       <File FileName="Assets/Scripts/Powers/Fireball.cs" Line="7" Column="38" />
-      <File FileName="Assets/Scripts/Character/PlayerHealth.cs" Line="5" Column="2" />
+      <File FileName="Assets/Scripts/Character/PlayerHealth.cs" Line="45" Column="7" />
       <File FileName="Assets/Scripts/Powers/Trap_Bomb.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Character/ragDollReplace.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Network/playerInGame.cs" Line="34" Column="24" />
-      <File FileName="Assets/Scripts/Network/manageConnections.cs" Line="573" Column="81" />
+      <File FileName="Assets/Scripts/Network/manageConnections.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

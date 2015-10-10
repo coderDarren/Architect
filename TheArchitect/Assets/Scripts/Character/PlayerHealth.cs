@@ -27,7 +27,7 @@ public class PlayerHealth : Photon.MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll)
 	{
-		if (coll.tag == "Projectile")
+		if (coll.tag == "Fireball")
 		{
 			Debug.Log ("Projectile Entered");
 			TakeProjectileDamage(coll.gameObject);
@@ -41,14 +41,14 @@ public class PlayerHealth : Photon.MonoBehaviour {
 
 	void TakeProjectileDamage(GameObject fireBall)
 	{
-		PhotonNetwork.RPC(this.photonView, "SyncDamage", PhotonTargets.AllBuffered, false, fireBall.GetComponent<Fireball>().fireBallDamage);
+		PhotonNetwork.RPC(this.gameObject.GetComponent<PhotonView>(), "SyncDamage", PhotonTargets.All, false, fireBall.GetComponent<Fireball>().fireBallDamage);
 //		health -= fireBall.GetComponent<Fireball>().fireBallDamage;
 		Debug.Log ("Taking Fireball damage");
 	}
 
 	void TakeMineDamage(GameObject bomb)
 	{
-		PhotonNetwork.RPC(this.photonView, "SyncDamage", PhotonTargets.AllBuffered, false, bomb.GetComponent<Trap_Bomb>().bombDamage);
+		PhotonNetwork.RPC(this.gameObject.GetComponent<PhotonView>(), "SyncDamage", PhotonTargets.All, false, bomb.GetComponent<Trap_Bomb>().bombDamage);
 //		health -= bomb.GetComponent<Trap_Bomb>().bombDamage;
 		Debug.Log ("Taking Bomb damage");
 	}
