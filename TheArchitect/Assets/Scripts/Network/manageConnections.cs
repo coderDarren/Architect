@@ -571,8 +571,6 @@ public class manageConnections : Photon.MonoBehaviour {
 				GUILayout.BeginHorizontal("Label");
 				
 				GUILayout.Box(room.name, GUILayout.Width(150), GUILayout.Height(30));							
-				GUILayout.Box((string)room.customProperties[PropertiesKeys.SceneNameKey], GUILayout.Width(140), GUILayout.Height(30));
-				GUILayout.Box((string)room.customProperties[PropertiesKeys.GameModeKey], GUILayout.Width(130), GUILayout.Height(30));		
 				GUILayout.Box(room.playerCount + "/" + room.maxPlayers, GUILayout.Width(80), GUILayout.Height(30));
 				GUILayout.Box(PhotonNetwork.GetPing().ToString(), GUILayout.Width(60), GUILayout.Height(30));
 				if (GUILayout.Button("Join Game", GUILayout.Width(120), GUILayout.Height(30)))

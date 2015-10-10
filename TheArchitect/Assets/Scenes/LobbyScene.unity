@@ -358,6 +358,8 @@ MonoBehaviour:
   ShowPhotonStatics: 0
   loading: 0
   GameModes: []
+  mySelection: 
+  architectSelected: 0
   maxPlayers: 
   RoomTime: 
   a_Click: {fileID: 8300000, guid: 4b269b9152f97d94e98363dc6e7faf2a, type: 3}

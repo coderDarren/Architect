@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : Photon.MonoBehaviour {
 
 	//Health Variables
 	public float health = 100.0f;
@@ -41,13 +41,15 @@ public class PlayerHealth : MonoBehaviour {
 
 	void TakeProjectileDamage(GameObject fireBall)
 	{
-		health -= fireBall.GetComponent<Fireball>().fireBallDamage;
+		PhotonNetwork.RPC(this.photonView, "SyncDamage", PhotonTargets.AllBuffered, false, fireBall.GetComponent<Fireball>().fireBallDamage);
+//		health -= fireBall.GetComponent<Fireball>().fireBallDamage;
 		Debug.Log ("Taking Fireball damage");
 	}
 
 	void TakeMineDamage(GameObject bomb)
 	{
-		health -= bomb.GetComponent<Trap_Bomb>().bombDamage;
+		PhotonNetwork.RPC(this.photonView, "SyncDamage", PhotonTargets.AllBuffered, false, bomb.GetComponent<Trap_Bomb>().bombDamage);
+//		health -= bomb.GetComponent<Trap_Bomb>().bombDamage;
 		Debug.Log ("Taking Bomb damage");
 	}
 
@@ -96,5 +98,11 @@ public class PlayerHealth : MonoBehaviour {
 			waitTime = originalTime;
 			health = 100;
 		}
+	}
+
+	[PunRPC]
+	void SyncDamage(float t_damage)
+	{
+		this.health -= t_damage;
 	}
 }
