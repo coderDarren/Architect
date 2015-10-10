@@ -580,6 +580,7 @@ GameObject:
   - 114: {fileID: 11447374}
   - 114: {fileID: 11427886}
   - 114: {fileID: 11483278}
+  - 114: {fileID: 11462356}
   m_Layer: 9
   m_Name: Player1
   m_TagString: Player
@@ -1471,6 +1472,25 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11462356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6b04ab8b38e4bd2bd5b3867b0eaffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  reSpawnPoint: {fileID: 0}
+  waitTime: 5
+  startTimer: 0
+  originalTime: 0
+  playerBody: {fileID: 0}
+  RagDoll: {fileID: 0}
+  playerGun: {fileID: 0}
 --- !u!114 &11465520
 MonoBehaviour:
   m_ObjectHideFlags: 1

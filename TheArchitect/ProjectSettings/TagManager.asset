@@ -21,6 +21,7 @@ TagManager:
   - Smoke
   - Bomb
   - BarrierButton
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

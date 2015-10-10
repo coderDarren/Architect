@@ -115,8 +115,8 @@ public class manageConnections : Photon.MonoBehaviour {
 			
 			if (ShowPhotonStatus)
 			{
-				GUI.Label(new Rect(0, 55, 500, 20), " <b><color=orange> Status:</color>  " + PhotonNetwork.connectionStateDetailed.ToString() + "</b>");
-				GUI.Label(new Rect(0, 80, 500, 20), " <b><color=orange> Player:</color>  " + PhotonNetwork.player.name+ "</b>");
+				GUI.Label(new Rect(0, 55, 500, 30), " <b><color=orange> Status:</color>  " + PhotonNetwork.connectionStateDetailed.ToString() + "</b>");
+				GUI.Label(new Rect(0, 80, 500, 30), " <b><color=orange> Player:</color>  " + PhotonNetwork.player.name+ "</b>");
 			}
 			if (ShowPhotonStatics)
 			{
