@@ -29,10 +29,12 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		if (coll.tag == "Projectile")
 		{
+			Debug.Log ("Projectile Entered");
 			TakeProjectileDamage(coll.gameObject);
 		}
 		if (coll.tag == "Bomb")
 		{
+			Debug.Log ("Bomb Entered");
 			TakeMineDamage(coll.gameObject);
 		}
 	}
@@ -92,6 +94,7 @@ public class PlayerHealth : MonoBehaviour {
 			ReinstatePlayerBody();
 			startTimer = false;
 			waitTime = originalTime;
+			health = 100;
 		}
 	}
 }

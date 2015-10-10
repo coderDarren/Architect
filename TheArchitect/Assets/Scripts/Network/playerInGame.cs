@@ -31,6 +31,7 @@ public class playerInGame : Photon.MonoBehaviour {
 	{
 		RemoveLevelComponents();
 		PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity, 0);
+		Destroy (archButton);
 	}
 
 	public void AddArchitect()
