@@ -251,7 +251,7 @@ public class manageConnections : Photon.MonoBehaviour {
 	public void EnterName (){
 		
 		playerName = playerName.Replace("\n", "");
-		GUILayout.BeginArea(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 57, 375, 135), "<color=white>Player Name</color>","window");
+		GUILayout.BeginArea(new Rect(Screen.width / 2 - 175, Screen.height / 2 + 57, 375, 135), "<color=white>Player Name</color>","window");
 		GUILayout.Space(10);
 		GUILayout.BeginHorizontal("box");
 		GUILayout.Label("<color=black>Player Name : </color>");
