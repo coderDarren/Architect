@@ -2881,7 +2881,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
 --- !u!1001 &902240847
 Prefab:
   m_ObjectHideFlags: 0
@@ -3586,7 +3586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
 --- !u!1 &1364865655
 GameObject:
   m_ObjectHideFlags: 0
@@ -4136,7 +4136,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 178434, guid: 7eaf69e71bfbfd64b9eefe1233ebeaed, type: 2}
       propertyPath: m_TagString
-      value: Bomb
+      value: TrapBomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7eaf69e71bfbfd64b9eefe1233ebeaed, type: 2}
@@ -5529,7 +5529,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 178434, guid: 7eaf69e71bfbfd64b9eefe1233ebeaed, type: 2}
       propertyPath: m_TagString
-      value: Bomb
+      value: TrapBomb
       objectReference: {fileID: 0}
     - target: {fileID: 178434, guid: 7eaf69e71bfbfd64b9eefe1233ebeaed, type: 2}
       propertyPath: m_Name

@@ -223,7 +223,7 @@ public class PlayerPowers : MonoBehaviour {
 
     void HandleLaserHit(GameObject victim)
     {
-        if (victim.tag.Equals("Bomb"))
+        if (victim.tag.Equals("TrapBomb"))
         {
             victim.GetComponent<Trap_Bomb>().KillBomb();
         }
